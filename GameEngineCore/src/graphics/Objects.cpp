@@ -34,41 +34,25 @@ namespace spacey{ namespace graphics{
 		//Movements cause the player to increase or decreas in size???
 		if (window->isKeyPressed(GLFW_KEY_D)){
 			
-			glMatrixMode(GL_PROJECTION);
-			glLoadIdentity();
-			gluPerspective(60.0, 1.0, 0.0, 7.0);
-			gluLookAt(m_x, m_y, 1.5, m_x, m_y, 0.0, 0.0, 1.0, 0.0);
-				
+			glTranslatef(m_x, m_y, 0.0);
 			m_x += acceleration;
-			
 		}
 
 		if (window->isKeyPressed(GLFW_KEY_A)){
 			
-			glMatrixMode(GL_PROJECTION);
-			glLoadIdentity();
-			gluPerspective(60.0, 1.0, 0.0, 7.0);
-			gluLookAt(m_x, m_y, 1.5, m_x, m_y, 0.0, 0.0, 1.0, 0.0);
-
+			glTranslatef(m_x, m_y, 0.0);
 			m_x -= acceleration;
-			
 		}
 
 		if (window->isKeyPressed(GLFW_KEY_W)){
-			glMatrixMode(GL_PROJECTION);
-			glLoadIdentity();
-			gluPerspective(60.0, 1.0, 0.0, 7.0);
-			gluLookAt(m_x, m_y, 1.5, m_x, m_y, 0.0, 0.0, 1.0, 0.0);
-
+			
+			glTranslatef(m_x, m_y, 0.0);
 			m_y += acceleration;
 		}
 
 		if (window->isKeyPressed(GLFW_KEY_S)){
-			glMatrixMode(GL_PROJECTION);
-			glLoadIdentity();
-			gluPerspective(60.0, 1.0, 0.0, 7.0);
-			gluLookAt(m_x, m_y, 1.5, m_x, m_y, 0.0, 0.0, 1.0, 0.0);
-
+			
+			glTranslatef(m_x, m_y, 0.0);
 			m_y -= acceleration;
 		}
 
@@ -116,12 +100,6 @@ namespace spacey{ namespace graphics{
 
 	void object::ship(){
 		
-		glMatrixMode(GL_PROJECTION);
-		glLoadIdentity();
-		gluPerspective(60.0, 1.0, 0.0, 7.0);
-		glMatrixMode(GL_MODELVIEW);
-		glLoadIdentity();
-		gluLookAt(0.0, 0.0, 1.5, m_x, m_y, 0.0, 0.0, 1.0, 0.0);
 
 		glBegin(GL_TRIANGLES);
 		glVertex2d(m_x, m_y + (20.0f / -300.0f));
