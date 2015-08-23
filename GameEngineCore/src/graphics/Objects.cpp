@@ -5,6 +5,7 @@ namespace spacey{ namespace graphics{
 	object::object(){
 		m_x = 0.0f;
 		m_y = 0.0f;
+		acceleration = 0.0f;
 		m_radius = 0.0f;
 		m_shape = "";
 	}
@@ -12,49 +13,63 @@ namespace spacey{ namespace graphics{
 	object::object(string shape, float x, float y, float radius){
 		m_x = (x / 400.0f) - 1;
 		m_y = (y / -300.0f) + 1;
-		m_radius = radius;
+		
 		m_shape = shape;
 
 		if (m_shape == "CIRCLE"){
+			m_radius = radius;
 			circle();
 		}
 		else if (m_shape == "RECTANGLE"){
+			m_radius = radius;
 			rectangle();
 		}
 		else if (m_shape == "SHIP"){
+			acceleration = radius;
 			ship();
 		}
 	}
 
 	void object::checkForMovement(Window* window){
+		//Movements cause the player to increase or decreas in size???
 		if (window->isKeyPressed(GLFW_KEY_D)){
-			if (m_x <= 0.5f){
-				m_x += 0.0005f;
-			}
-			else{
-				//gluLookAt(0.0, 0.0, 0.0, m_x, m_y, 0.0, 0.0, 0.0, 1.0);
-			}
+			
+			glMatrixMode(GL_PROJECTION);
+			glLoadIdentity();
+			gluPerspective(60.0, 1.0, 0.0, 7.0);
+			gluLookAt(m_x, m_y, 1.5, m_x, m_y, 0.0, 0.0, 1.0, 0.0);
+				
+			m_x += acceleration;
+			
 		}
 
 		if (window->isKeyPressed(GLFW_KEY_A)){
-			if (m_x >= -0.5f){
-				m_x -= 0.0005f;
-			}
-			else{
+			
+			glMatrixMode(GL_PROJECTION);
+			glLoadIdentity();
+			gluPerspective(60.0, 1.0, 0.0, 7.0);
+			gluLookAt(m_x, m_y, 1.5, m_x, m_y, 0.0, 0.0, 1.0, 0.0);
 
-			}
+			m_x -= acceleration;
+			
 		}
 
 		if (window->isKeyPressed(GLFW_KEY_W)){
-			if (m_y <= 0.5f){
-				m_y += 0.0005f;
-			}
+			glMatrixMode(GL_PROJECTION);
+			glLoadIdentity();
+			gluPerspective(60.0, 1.0, 0.0, 7.0);
+			gluLookAt(m_x, m_y, 1.5, m_x, m_y, 0.0, 0.0, 1.0, 0.0);
+
+			m_y += acceleration;
 		}
 
 		if (window->isKeyPressed(GLFW_KEY_S)){
-			if (m_y >= -0.5f){
-				m_y -= 0.0005f;
-			}
+			glMatrixMode(GL_PROJECTION);
+			glLoadIdentity();
+			gluPerspective(60.0, 1.0, 0.0, 7.0);
+			gluLookAt(m_x, m_y, 1.5, m_x, m_y, 0.0, 0.0, 1.0, 0.0);
+
+			m_y -= acceleration;
 		}
 
 	}
@@ -100,7 +115,14 @@ namespace spacey{ namespace graphics{
 	}
 
 	void object::ship(){
-		//glColor3d(0.5f, 0.1f, 0.2f); Colors everything created after in the sequence
+		
+		glMatrixMode(GL_PROJECTION);
+		glLoadIdentity();
+		gluPerspective(60.0, 1.0, 0.0, 7.0);
+		glMatrixMode(GL_MODELVIEW);
+		glLoadIdentity();
+		gluLookAt(0.0, 0.0, 1.5, m_x, m_y, 0.0, 0.0, 1.0, 0.0);
+
 		glBegin(GL_TRIANGLES);
 		glVertex2d(m_x, m_y + (20.0f / -300.0f));
 		glVertex2d(m_x + (5.0f / 400.0f), m_y); //Nose of Ship

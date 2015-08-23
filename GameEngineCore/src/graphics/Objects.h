@@ -1,5 +1,5 @@
 #include <GL/glew.h>
-//#include <GLU.h>
+#include <GL/GLU.h>
 #include <GLFW/glfw3.h>
 #include <vector>
 #include <string>
@@ -23,8 +23,10 @@ namespace spacey{ namespace graphics{
 		void circle();
 		void rectangle();
 		void ship();
-		
-		void rotate(string dir);
+		void rotate(string dir); //doesn't work yet
+
+		float acceleration;
+
 
 		float m_radius;
 		string m_shape;

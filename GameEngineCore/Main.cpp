@@ -15,7 +15,7 @@ int main(){
 	Window window("A Soon To Be Space Game", 800, 600);
 	glClearColor(0.1f, 0.2f, 0.5f, 0.0f);
 
-	object player("SHIP", 390, 290, NULL);
+	object player("SHIP", 390, 290, 0.0005f);
 	object planet("CIRCLE", 100, 100, 0.1f);
 
 	while (!window.closed()){
