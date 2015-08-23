@@ -1,5 +1,5 @@
 #include <GL/glew.h>
-//#include <GLU.h>
+#include <GL/GLU.h>
 #include <GLFW/glfw3.h>
 #include <vector>
 #include <string>
