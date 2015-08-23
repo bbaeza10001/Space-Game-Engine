@@ -34,25 +34,25 @@ namespace spacey{ namespace graphics{
 		//Movements cause the player to increase or decreas in size???
 		if (window->isKeyPressed(GLFW_KEY_D)){
 			
-			glTranslatef(m_x, m_y, 0.0);
+			glTranslatef(-acceleration, 0.0, 0.0);
 			m_x += acceleration;
 		}
 
 		if (window->isKeyPressed(GLFW_KEY_A)){
 			
-			glTranslatef(m_x, m_y, 0.0);
+			glTranslatef(acceleration, 0.0, 0.0);
 			m_x -= acceleration;
 		}
 
 		if (window->isKeyPressed(GLFW_KEY_W)){
 			
-			glTranslatef(m_x, m_y, 0.0);
+			glTranslatef(0.0, -acceleration, 0.0);
 			m_y += acceleration;
 		}
 
 		if (window->isKeyPressed(GLFW_KEY_S)){
 			
-			glTranslatef(m_x, m_y, 0.0);
+			glTranslatef(0.0, acceleration, 0.0);
 			m_y -= acceleration;
 		}
 
