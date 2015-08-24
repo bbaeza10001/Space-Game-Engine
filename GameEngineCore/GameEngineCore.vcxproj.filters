@@ -30,10 +30,10 @@
     <ClCompile Include="src\math\Vec4.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\graphics\Objects.cpp">
+    <ClCompile Include="src\objects\PlayerObject.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\graphics\Movement.cpp">
+    <ClCompile Include="src\objects\CircleObject.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -53,10 +53,13 @@
     <ClInclude Include="src\math\Vec4.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\graphics\Objects.h">
+    <ClInclude Include="src\objects\CircleObject.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\graphics\Movement.h">
+    <ClInclude Include="src\objects\PlayerObject.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\objects\BaseObject.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
