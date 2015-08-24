@@ -78,21 +78,22 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp" />
-    <ClCompile Include="src\graphics\Objects.cpp" />
     <ClCompile Include="src\graphics\Window.cpp" />
-    <ClCompile Include="src\graphics\Movement.cpp" />
     <ClCompile Include="src\math\Vec2.cpp" />
     <ClCompile Include="src\math\Vec3.cpp" />
     <ClCompile Include="src\math\Vec4.cpp" />
+    <ClCompile Include="src\objects\CircleObject.cpp" />
+    <ClCompile Include="src\objects\PlayerObject.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\graphics\Objects.h" />
+    <ClInclude Include="src\objects\BaseObject.h" />
     <ClInclude Include="src\graphics\Window.h" />
-    <ClInclude Include="src\graphics\Movement.h" />
     <ClInclude Include="src\math\Maths.h" />
     <ClInclude Include="src\math\Vec2.h" />
     <ClInclude Include="src\math\Vec3.h" />
     <ClInclude Include="src\math\Vec4.h" />
+    <ClInclude Include="src\objects\CircleObject.h" />
+    <ClInclude Include="src\objects\PlayerObject.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
