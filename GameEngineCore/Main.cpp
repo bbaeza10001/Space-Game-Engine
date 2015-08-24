@@ -46,7 +46,7 @@ int main(){
 
 	// Construction
 	PlayerObject player;
-	CircleObject planet1(20, 100, 4), planet2(-30, -53, 1);
+	CircleObject planet1(20, 100, 4), planet2(-30, -53, 20);
 
 	// opengl setup
 	glMatrixMode(GL_PROJECTION);
@@ -73,54 +73,9 @@ int main(){
 		player.Draw();
 		glPopMatrix();
 
-		// can't remember why I put this in main.. D'oh
-		// TODO: put this back in a reasonable location & put it on a timer
-		if (window.isKeyPressed(GLFW_KEY_D)){ //If D key is pressed
-			if (abs(xacceleration) < motion::accelMax)
-				xacceleration += 0.1;
-		}
-		else if (window.isKeyPressed(GLFW_KEY_A)){
-			if (abs(xacceleration) < motion::accelMax)
-				xacceleration -= 0.1;
-		}
-		else {
-			if (xacceleration > 0){
-				xacceleration -= 0.1;
-			}
-			else if (xacceleration < 0){
-				xacceleration += 0.1;
-			}
-		}
-
-		if (window.isKeyPressed(GLFW_KEY_W)){
-			if (abs(yacceleration) < motion::accelMax)
-				yacceleration += 0.1;
-		}
-		else if (window.isKeyPressed(GLFW_KEY_S)){
-			if (abs(yacceleration) < motion::accelMax)
-				yacceleration -= 0.1;
-		}
-		else{
-			if (yacceleration > 0){
-				yacceleration -= 0.1;
-			}
-			else if (yacceleration < 0){
-				yacceleration += 0.1;
-			}
-		}
-
-
-		if (window.isKeyPressed(GLFW_KEY_Q)){
-			input_angle = 5;
-		}
-		else if (window.isKeyPressed(GLFW_KEY_E)){
-			input_angle = -5;
-		}
-		else{
-			input_angle = 0;
-		}
-
-
+		player.move(&window, xacceleration, yacceleration);
+		player.rotate(&window, input_angle);
+		
 		window.update();
 	}
 
