@@ -5,7 +5,9 @@ namespace spacey{ namespace graphics{
 	object::object(){
 		m_x = 0.0f;
 		m_y = 0.0f;
-		acceleration = 0.0f;
+		speed = 0.0f;
+		xacceleration = 0.0f;
+		yacceleration = 0.0f;
 		m_radius = 0.0f;
 		m_shape = "";
 	}
@@ -13,7 +15,8 @@ namespace spacey{ namespace graphics{
 	object::object(string shape, float x, float y, float radius){
 		m_x = (x / 400.0f) - 1;
 		m_y = (y / -300.0f) + 1;
-		
+		xacceleration = 0.0f;
+		yacceleration = 0.0f;
 		m_shape = shape;
 
 		if (m_shape == "CIRCLE"){
@@ -25,35 +28,86 @@ namespace spacey{ namespace graphics{
 			rectangle();
 		}
 		else if (m_shape == "SHIP"){
-			acceleration = radius;
+			speed = radius;
 			ship();
 		}
 	}
 
 	void object::checkForMovement(Window* window){
-		//Movements cause the player to increase or decreas in size???
-		if (window->isKeyPressed(GLFW_KEY_D)){
+		if (window->isKeyPressed(GLFW_KEY_D)){ //If D key is pressed
 			
-			glTranslatef(-acceleration, 0.0, 0.0);
-			m_x += acceleration;
+			if (xacceleration < 0.0f){
+				xacceleration = 0.0f;
+			}
+
+			glTranslatef(-speed - xacceleration, 0.0, 0.0);
+			m_x += speed + xacceleration;
+			if (xacceleration < accelMax)
+				xacceleration += 0.00001;
+		}
+		else {
+			if (xacceleration > 0.0f){                 
+				xacceleration -= 0.00001;              
+				glTranslatef(-speed - xacceleration, 0.0, 0.0);
+				m_x += speed + xacceleration;
+			}
 		}
 
 		if (window->isKeyPressed(GLFW_KEY_A)){
-			
-			glTranslatef(acceleration, 0.0, 0.0);
-			m_x -= acceleration;
+
+			if (xacceleration > 0.0f){
+				xacceleration = 0.0f;
+			}
+
+			glTranslatef(speed - xacceleration, 0.0, 0.0);
+			m_x -= speed - xacceleration;
+			if (xacceleration < accelMax)
+				xacceleration -= 0.00001;
+		}
+		else {
+			if (xacceleration > 0.0f){
+				xacceleration += 0.00001;
+				glTranslatef(speed - xacceleration, 0.0, 0.0);
+				m_x -= speed - xacceleration;
+			}
 		}
 
 		if (window->isKeyPressed(GLFW_KEY_W)){
 			
-			glTranslatef(0.0, -acceleration, 0.0);
-			m_y += acceleration;
+			if (yacceleration < 0.0f){
+				yacceleration = 0.0f;
+			}
+
+			glTranslatef(0.0, -speed - yacceleration, 0.0);
+			m_y += speed + yacceleration;
+			if (yacceleration < accelMax)
+				yacceleration += 0.00001;
+		}
+		else{
+			if (yacceleration > 0.0f){
+				yacceleration -= 0.00001;
+				glTranslatef(0.0, -speed - yacceleration, 0.0);
+				m_y += speed + yacceleration;
+			}
 		}
 
 		if (window->isKeyPressed(GLFW_KEY_S)){
 			
-			glTranslatef(0.0, acceleration, 0.0);
-			m_y -= acceleration;
+			if (yacceleration > 0.0f){
+				yacceleration = 0.0f;
+			}
+
+			glTranslatef(0.0, speed - yacceleration, 0.0);
+			m_y -= speed - yacceleration;
+			if (yacceleration < accelMax)
+				yacceleration -= 0.00001;
+		}
+		else{
+			if (yacceleration < 0.0f){
+				yacceleration += 0.00001;
+				glTranslatef(0.0, speed - yacceleration, 0.0);
+				m_y -= speed - yacceleration;
+			}
 		}
 
 	}

@@ -25,8 +25,11 @@ namespace spacey{ namespace graphics{
 		void ship();
 		void rotate(string dir); //doesn't work yet
 
-		float acceleration;
-
+		//For accelerations
+		float speed;
+		float xacceleration;
+		float yacceleration;
+		float const accelMax = 0.1;
 
 		float m_radius;
 		string m_shape;
