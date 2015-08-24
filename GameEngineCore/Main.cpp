@@ -10,14 +10,35 @@ using namespace spacey;
 using namespace graphics;
 using namespace objects;
 
+namespace spacey {
+	namespace motion{
+		float xspeed = 0;
+		float yspeed = 0;
+		float angle = 0;
+		float const accelMax = 10;
+
+		void applySpeed(float xaccel, float yaccel){
+		
+			// use -= to move background opposite input
+			xspeed -= xaccel;
+			yspeed -= yaccel;
+			glTranslatef(xspeed, yspeed, 0);
+		
+		}
+		void applyRotation(float rangle){
+
+			angle += rangle;
+			glRotatef(angle, 0, 0, 1);
+		}
+	}
+}
 
 int main(){
 
 	//For accelerations
-	float speed = 0;
 	float xacceleration = 0;
 	float yacceleration = 0;
-	float const accelMax = 10;
+	float input_angle = 0;
 
 	//Window creation
 	static Window window("A Soon To Be Space Game", 800, 600);
@@ -38,8 +59,9 @@ int main(){
 	while (!window.closed()){
 		window.clear();
 		
+		// apply translation to world objects
 		glPushMatrix();
-		// do movement here? a gltranslatef should move planets 1 and 2 but not the player
+		motion::applySpeed(xacceleration, yacceleration);
 		planet1.Draw();
 		planet2.Draw();
 		glPopMatrix();
@@ -47,67 +69,58 @@ int main(){
 		// draw the player in the middle every time, i.e., I don't care about translating it at all
 		glPushMatrix();
 		// do rotation here
+		motion::applyRotation(input_angle);
 		player.Draw();
 		glPopMatrix();
 
 		// can't remember why I put this in main.. D'oh
-		// TODO: put this back in a reasonable location
+		// TODO: put this back in a reasonable location & put it on a timer
 		if (window.isKeyPressed(GLFW_KEY_D)){ //If D key is pressed
-
-			if (xacceleration < 0.0f){
-				xacceleration = 0.0f;
-			}
-			if (abs(xacceleration) < accelMax)
-				xacceleration += 0.0001;
+			if (abs(xacceleration) < motion::accelMax)
+				xacceleration += 0.1;
+		}
+		else if (window.isKeyPressed(GLFW_KEY_A)){
+			if (abs(xacceleration) < motion::accelMax)
+				xacceleration -= 0.1;
 		}
 		else {
-			if (xacceleration > 0.0f){
-				xacceleration -= 0.0001;
+			if (xacceleration > 0){
+				xacceleration -= 0.1;
 			}
-		}
-
-		if (window.isKeyPressed(GLFW_KEY_A)){
-
-			if (xacceleration > 0.0f){
-				xacceleration = 0.0f;
-			}
-			if (abs(xacceleration) < accelMax)
-				xacceleration -= 0.0001;
-		}
-		else {
-			if (xacceleration < 0.0f){
-				xacceleration += 0.0001;
+			else if (xacceleration < 0){
+				xacceleration += 0.1;
 			}
 		}
 
 		if (window.isKeyPressed(GLFW_KEY_W)){
-
-			if (yacceleration < 0.0f){
-				yacceleration = 0.0f;
-			}
-			if (abs(yacceleration) < accelMax)
-				yacceleration += 0.0001;
+			if (abs(yacceleration) < motion::accelMax)
+				yacceleration += 0.1;
+		}
+		else if (window.isKeyPressed(GLFW_KEY_S)){
+			if (abs(yacceleration) < motion::accelMax)
+				yacceleration -= 0.1;
 		}
 		else{
-			if (yacceleration > 0.0f){
-				yacceleration -= 0.0001;
+			if (yacceleration > 0){
+				yacceleration -= 0.1;
+			}
+			else if (yacceleration < 0){
+				yacceleration += 0.1;
 			}
 		}
 
-		if (window.isKeyPressed(GLFW_KEY_S)){
 
-			if (yacceleration > 0.0f){
-				yacceleration = 0.0f;
-			}
-			if (abs(yacceleration) < accelMax)
-				yacceleration -= 0.0001;
+		if (window.isKeyPressed(GLFW_KEY_Q)){
+			input_angle = 5;
+		}
+		else if (window.isKeyPressed(GLFW_KEY_E)){
+			input_angle = -5;
 		}
 		else{
-			if (yacceleration < 0.0f){
-				yacceleration += 0.0001;
-			}
+			input_angle = 0;
 		}
-	
+
+
 		window.update();
 	}
 
