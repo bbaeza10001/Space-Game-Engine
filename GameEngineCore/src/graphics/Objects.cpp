@@ -42,7 +42,7 @@ namespace spacey{ namespace graphics{
 
 			glTranslatef(-speed - xacceleration, 0.0, 0.0);
 			m_x += speed + xacceleration;
-			if (xacceleration < accelMax)
+			if (abs(xacceleration) < accelMax)
 				xacceleration += 0.00001;
 		}
 		else {
@@ -61,11 +61,11 @@ namespace spacey{ namespace graphics{
 
 			glTranslatef(speed - xacceleration, 0.0, 0.0);
 			m_x -= speed - xacceleration;
-			if (xacceleration < accelMax)
+			if (abs(xacceleration) < accelMax)
 				xacceleration -= 0.00001;
 		}
 		else {
-			if (xacceleration > 0.0f){
+			if (xacceleration < 0.0f){
 				xacceleration += 0.00001;
 				glTranslatef(speed - xacceleration, 0.0, 0.0);
 				m_x -= speed - xacceleration;
@@ -80,7 +80,7 @@ namespace spacey{ namespace graphics{
 
 			glTranslatef(0.0, -speed - yacceleration, 0.0);
 			m_y += speed + yacceleration;
-			if (yacceleration < accelMax)
+			if (abs(yacceleration) < accelMax)
 				yacceleration += 0.00001;
 		}
 		else{
@@ -99,7 +99,7 @@ namespace spacey{ namespace graphics{
 
 			glTranslatef(0.0, speed - yacceleration, 0.0);
 			m_y -= speed - yacceleration;
-			if (yacceleration < accelMax)
+			if (abs(yacceleration) < accelMax)
 				yacceleration -= 0.00001;
 		}
 		else{
