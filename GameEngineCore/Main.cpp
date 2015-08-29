@@ -7,6 +7,7 @@
 #include "src\graphics\Window.h"
 #include "src\Input\InputController.h"
 #include "src\motion\MotionController.h"
+#include <stdlib.h>
 
 using namespace spacey;
 using namespace graphics;
@@ -53,11 +54,9 @@ int main(){
 		player.Draw();
 		glPopMatrix();
 
-		//Object Movement functions
 		
-		//
-
 		window.update();
+		Sleep(10); //Controls how fast the game loop runs
 	}
 
 	return 0;
