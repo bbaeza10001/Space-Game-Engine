@@ -5,40 +5,17 @@
 #include "src\objects\PlayerObject.h"
 #include "src\objects\CircleObject.h"
 #include "src\graphics\Window.h"
+#include "src\Input\InputController.h"
+#include "src\motion\MotionController.h"
 
 using namespace spacey;
 using namespace graphics;
 using namespace objects;
+using namespace motion;
+using namespace input;
 
-namespace spacey {
-	namespace motion{
-		float xspeed = 0;
-		float yspeed = 0;
-		float angle = 0;
-		float const accelMax = 10;
-
-		void applySpeed(float xaccel, float yaccel){
-		
-			// use -= to move background opposite input
-			xspeed -= xaccel;
-			yspeed -= yaccel;
-			glTranslatef(xspeed, yspeed, 0);
-		
-		}
-		void applyRotation(float rangle){
-
-			angle += rangle;
-			glRotatef(angle, 0, 0, 1);
-		}
-	}
-}
 
 int main(){
-
-	//For accelerations
-	float xacceleration = 0;
-	float yacceleration = 0;
-	float input_angle = 0;
 
 	//Window creation
 	static Window window("A Soon To Be Space Game", 800, 600);
@@ -47,6 +24,8 @@ int main(){
 	// Construction
 	PlayerObject player;
 	CircleObject planet1(20, 100, 4), planet2(-30, -53, 20);
+	Motion motion;
+	Input input;
 
 	// opengl setup
 	glMatrixMode(GL_PROJECTION);
@@ -59,23 +38,25 @@ int main(){
 	while (!window.closed()){
 		window.clear();
 		
-		// apply translation to world objects
+		input.checkForInput(&window, &motion);
+
+		// Translation
 		glPushMatrix();
-		motion::applySpeed(xacceleration, yacceleration);
+		motion.applySpeed();
 		planet1.Draw();
 		planet2.Draw();
 		glPopMatrix();
 		
-		// draw the player in the middle every time, i.e., I don't care about translating it at all
+		// Rotation
 		glPushMatrix();
-		// do rotation here
-		motion::applyRotation(input_angle);
+		motion.applyRotation();
 		player.Draw();
 		glPopMatrix();
 
-		player.move(&window, xacceleration, yacceleration);
-		player.rotate(&window, input_angle);
+		//Object Movement functions
 		
+		//
+
 		window.update();
 	}
 
