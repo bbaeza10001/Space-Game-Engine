@@ -9,6 +9,7 @@ using namespace objects;
 using namespace motion;
 using namespace input;
 using namespace std;
+using namespace level;
 
 
 int main(){
@@ -24,48 +25,9 @@ int main(){
 	CircleObject planet1(20, 100, 4), planet2(-30, -53, 20);
 	Motion motion;
 	Input input;
+	Level load;
 
-	//BEGIN: LOADING PLANETS FROM LEVELS TEXT DOCUMENT
-	ifstream system;
-	
-	system.open("level.txt");
-
-	if (system.fail()){
-		cout << "Opening level file failed" << endl;
-	}
-	else{
-		string pos;
-		int x, y, size;
-		
-		system >> pos; 
-		
-		vector<CircleObject> test;
-
-		while (system.is_open()){
-
-			if (pos == "-"){
-				system >> x >> y >> size;
-
-				CircleObject temp(x, y, size);
-
-				test.push_back(temp);
-				cout << "Added element to vector.\n";
-			}
-			else if (pos == "="){
-				cout << "Reached end of file.\n";
-				system.close();
-			}
-
-			system >> pos;
-		}
-
-		cout << "Finished with while loop" << endl;
-		
-		for (unsigned int i = 0; i < test.size(); i++){
-			cout << "Planet " << i << ": " << test[i].x_coord << ", " << test[i].y_coord << endl;
-		}
-	}
-	//END: LOADING PLANETS
+	vector<CircleObject> test = load.loadPlanets(test, "level.txt");
 
 	// opengl setup
 	glMatrixMode(GL_PROJECTION);
@@ -85,6 +47,9 @@ int main(){
 		motion.applySpeed();
 		planet1.Draw();
 		planet2.Draw();
+		for (int i = 0; i < test.size(); i++){
+			test[i].Draw();
+		}
 		glPopMatrix();
 		
 		// Rotation

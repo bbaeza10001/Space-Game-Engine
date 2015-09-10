@@ -78,6 +78,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="src\graphics\LoadLevel.cpp" />
     <ClCompile Include="src\graphics\Window.cpp" />
     <ClCompile Include="src\Input\InputController.cpp" />
     <ClCompile Include="src\math\Vec2.cpp" />
@@ -88,6 +89,7 @@
     <ClCompile Include="src\objects\PlayerObject.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\graphics\LoadLevel.h" />
     <ClInclude Include="src\include\Includes.h" />
     <ClInclude Include="src\Input\InputController.h" />
     <ClInclude Include="src\motion\MotionController.h" />
