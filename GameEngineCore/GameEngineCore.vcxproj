@@ -88,9 +88,9 @@
     <ClCompile Include="src\objects\PlayerObject.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\include\Includes.h" />
     <ClInclude Include="src\Input\InputController.h" />
     <ClInclude Include="src\motion\MotionController.h" />
-    <ClInclude Include="src\objects\BaseObject.h" />
     <ClInclude Include="src\graphics\Window.h" />
     <ClInclude Include="src\math\Maths.h" />
     <ClInclude Include="src\math\Vec2.h" />

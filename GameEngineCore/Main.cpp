@@ -1,25 +1,22 @@
-#include <string>
-#include <GL\glew.h>
-#include <GL\GLU.h>
-#include <GL\glut.h>
-#include "src\objects\PlayerObject.h"
-#include "src\objects\CircleObject.h"
-#include "src\graphics\Window.h"
-#include "src\Input\InputController.h"
-#include "src\motion\MotionController.h"
-#include <stdlib.h>
+#include "src\include\Includes.h"
+#include <fstream>
+#include <iostream>
+#include <vector>
 
 using namespace spacey;
 using namespace graphics;
 using namespace objects;
 using namespace motion;
 using namespace input;
+using namespace std;
 
 
 int main(){
+	int width = 800;
+	int height = 600;
 
 	//Window creation
-	static Window window("A Soon To Be Space Game", 800, 600);
+	static Window window("Interstellar Explorer", width, height);
 	glClearColor(0.1f, 0.2f, 0.5f, 0.0f);
 
 	// Construction
@@ -28,10 +25,52 @@ int main(){
 	Motion motion;
 	Input input;
 
+	//BEGIN: LOADING PLANETS FROM LEVELS TEXT DOCUMENT
+	ifstream system;
+	
+	system.open("level.txt");
+
+	if (system.fail()){
+		cout << "Opening level file failed" << endl;
+	}
+	else{
+		string pos;
+		int x, y, size;
+		
+		system >> pos; 
+		
+		vector<CircleObject> test;
+
+		while (system.is_open()){
+
+			if (pos == "-"){
+				system >> x >> y >> size;
+
+				CircleObject temp(x, y, size);
+
+				test.push_back(temp);
+				cout << "Added element to vector.\n";
+			}
+			else if (pos == "="){
+				cout << "Reached end of file.\n";
+				system.close();
+			}
+
+			system >> pos;
+		}
+
+		cout << "Finished with while loop" << endl;
+		
+		for (unsigned int i = 0; i < test.size(); i++){
+			cout << "Planet " << i << ": " << test[i].x_coord << ", " << test[i].y_coord << endl;
+		}
+	}
+	//END: LOADING PLANETS
+
 	// opengl setup
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
-	gluOrtho2D(-800 / 2.0, 800 / 2.0, -600 / 2.0, 600 / 2.0);
+	gluOrtho2D(-width / 2.0, width / 2.0, -height / 2.0, height / 2.0);
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
 
@@ -54,9 +93,8 @@ int main(){
 		player.Draw();
 		glPopMatrix();
 
-		
 		window.update();
-		Sleep(10); //Controls how fast the game loop runs
+		Sleep(0.825); //Controls how fast the game loop runs
 	}
 
 	return 0;

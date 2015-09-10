@@ -18,6 +18,7 @@ namespace spacey{
 			const float full_angle = 2.0f*3.141592654f;
 			float xN = 0.0f;
 			float yN = 0.0f;
+
 			glPushMatrix();
 			glTranslatef(x_coord, y_coord, 0);
 			glBegin(GL_LINE_LOOP);

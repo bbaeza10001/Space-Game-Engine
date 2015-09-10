@@ -65,13 +65,13 @@
     <ClInclude Include="src\objects\PlayerObject.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\objects\BaseObject.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="src\Input\InputController.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\motion\MotionController.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\include\Includes.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
