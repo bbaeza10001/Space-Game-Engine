@@ -21,15 +21,18 @@ namespace spacey{
 
 			glPushMatrix();
 			glTranslatef(x_coord, y_coord, 0);
-			glBegin(GL_LINE_LOOP);
+			glBegin(GL_POLYGON);
 			for (float i = 0; i < 180; i++)
 			{
 				xN = CircleObject::radius * (std::cos(i * full_angle / 180.0f));
 				yN = CircleObject::radius * (std::sin(i * full_angle / 180.0f));
 
+				
+				glColor3f(1.0f, 0.0f, i); //Sets color of planets
 				glVertex2d(xN, yN);
 			}
 			glEnd();
+			
 			glPopMatrix();
 		}
 	}

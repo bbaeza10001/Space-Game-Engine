@@ -18,11 +18,11 @@ int main(){
 
 	//Window creation
 	static Window window("Interstellar Explorer", width, height);
-	glClearColor(0.1f, 0.2f, 0.5f, 0.0f);
+	glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
 
 	// Construction
 	PlayerObject player;
-	CircleObject planet1(20, 100, 4), planet2(-30, -53, 20);
+	//CircleObject planet1(20, 100, 4), planet2(-30, -53, 20);
 	Motion motion;
 	Input input;
 	Level load;
@@ -45,8 +45,8 @@ int main(){
 		// Translation
 		glPushMatrix();
 		motion.applySpeed();
-		planet1.Draw();
-		planet2.Draw();
+		//planet1.Draw();
+		//planet2.Draw();
 		for (int i = 0; i < test.size(); i++){
 			test[i].Draw();
 		}

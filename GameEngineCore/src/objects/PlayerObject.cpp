@@ -9,6 +9,7 @@ namespace spacey{
 
 		void PlayerObject::Draw(){
 			glPushMatrix();
+			glColor3f(1.0, 0.0, 0.0); //Sets the color of the ship each time it's drawn
 			glBegin(GL_TRIANGLES);
 			glVertex2d(-5.0f, -10.0f);
 			glVertex2d(0, 10.0f); //Nose of Ship
