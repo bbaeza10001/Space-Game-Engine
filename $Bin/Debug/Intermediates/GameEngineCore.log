@@ -1,8 +1,12 @@
-﻿Build started 9/10/2015 8:10:50 PM.
+﻿Build started 9/14/2015 7:25:41 PM.
      1>Project "C:\Users\Baeza\Documents\Visual Studio 2013\Projects\Space-Game-Engine\GameEngineCore\GameEngineCore.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D GLEW_STATIC /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"C:\Users\Baeza\Documents\Visual Studio 2013\Projects\Space-Game-Engine\$Bin\Debug\Intermediates\\" /Fd"C:\Users\Baeza\Documents\Visual Studio 2013\Projects\Space-Game-Engine\$Bin\Debug\Intermediates\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt src\objects\CircleObject.cpp
-         CircleObject.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D GLEW_STATIC /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"C:\Users\Baeza\Documents\Visual Studio 2013\Projects\Space-Game-Engine\$Bin\Debug\Intermediates\\" /Fd"C:\Users\Baeza\Documents\Visual Studio 2013\Projects\Space-Game-Engine\$Bin\Debug\Intermediates\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Main.cpp
+         Main.cpp
+     1>c:\users\baeza\documents\visual studio 2013\projects\space-game-engine\gameenginecore\src\objects\playerobject.h(5): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+     1>c:\users\baeza\documents\visual studio 2013\projects\space-game-engine\gameenginecore\main.cpp(51): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\baeza\documents\visual studio 2013\projects\space-game-engine\gameenginecore\main.cpp(54): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\baeza\documents\visual studio 2013\projects\space-game-engine\gameenginecore\main.cpp(72): warning C4244: 'argument' : conversion from 'double' to 'DWORD', possible loss of data
        Link:
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Baeza\Documents\Visual Studio 2013\Projects\Space-Game-Engine\$Bin\Debug\GameEngineCore.exe" /INCREMENTAL /NOLOGO glu32.lib glfw3.lib opengl32.lib glew32s.lib freeglut.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Baeza\Documents\Visual Studio 2013\Projects\Space-Game-Engine\$Bin\Debug\GameEngineCore.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Baeza\Documents\Visual Studio 2013\Projects\Space-Game-Engine\$Bin\Debug\GameEngineCore.lib" /MACHINE:X86 "C:\Users\Baeza\Documents\Visual Studio 2013\Projects\Space-Game-Engine\$Bin\Debug\Intermediates\Main.obj"
          "C:\Users\Baeza\Documents\Visual Studio 2013\Projects\Space-Game-Engine\$Bin\Debug\Intermediates\LoadLevel.obj"
@@ -12,6 +16,7 @@
          "C:\Users\Baeza\Documents\Visual Studio 2013\Projects\Space-Game-Engine\$Bin\Debug\Intermediates\Vec3.obj"
          "C:\Users\Baeza\Documents\Visual Studio 2013\Projects\Space-Game-Engine\$Bin\Debug\Intermediates\Vec4.obj"
          "C:\Users\Baeza\Documents\Visual Studio 2013\Projects\Space-Game-Engine\$Bin\Debug\Intermediates\MotionController.obj"
+         "C:\Users\Baeza\Documents\Visual Studio 2013\Projects\Space-Game-Engine\$Bin\Debug\Intermediates\Orbits.obj"
          "C:\Users\Baeza\Documents\Visual Studio 2013\Projects\Space-Game-Engine\$Bin\Debug\Intermediates\CircleObject.obj"
          "C:\Users\Baeza\Documents\Visual Studio 2013\Projects\Space-Game-Engine\$Bin\Debug\Intermediates\PlayerObject.obj"
          GameEngineCore.vcxproj -> C:\Users\Baeza\Documents\Visual Studio 2013\Projects\Space-Game-Engine\$Bin\Debug\GameEngineCore.exe
@@ -19,4 +24,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:02.38
+Time Elapsed 00:00:04.82

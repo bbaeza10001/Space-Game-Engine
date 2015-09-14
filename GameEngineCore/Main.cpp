@@ -1,4 +1,5 @@
 #include "src\include\Includes.h"
+#include "src\motion\Orbits.h"
 #include <fstream>
 #include <iostream>
 #include <vector>
@@ -20,14 +21,16 @@ int main(){
 	static Window window("Interstellar Explorer", width, height);
 	glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
 
-	// Construction
-	PlayerObject player;
-	//CircleObject planet1(20, 100, 4), planet2(-30, -53, 20);
 	Motion motion;
 	Input input;
 	Level load;
+	Orbit orb1;
+	Orbit orb2;
 
+	// Construction
+	PlayerObject player;
 	vector<CircleObject> test = load.loadPlanets(test, "level.txt");
+	vector<CircleObject> test2 = load.loadPlanets(test2, "Star System 2.txt");
 
 	// opengl setup
 	glMatrixMode(GL_PROJECTION);
@@ -45,10 +48,11 @@ int main(){
 		// Translation
 		glPushMatrix();
 		motion.applySpeed();
-		//planet1.Draw();
-		//planet2.Draw();
 		for (int i = 0; i < test.size(); i++){
 			test[i].Draw();
+		}
+		for (int i = 0; i < test.size(); i++){
+			test2[i].Draw();
 		}
 		glPopMatrix();
 		
@@ -58,8 +62,14 @@ int main(){
 		player.Draw();
 		glPopMatrix();
 
+		//Orbits
+		glPushMatrix();
+		orb1.orbit(test);
+		orb2.orbit(test2);
+		glPopMatrix();
+
 		window.update();
-		Sleep(0.825); //Controls how fast the game loop runs
+		Sleep(0.5); //Controls how fast the game loop runs
 	}
 
 	return 0;

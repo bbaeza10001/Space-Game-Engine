@@ -24,6 +24,7 @@ namespace spacey{ namespace motion{
 		
 		//For Rotations
 		float angleIncriment = 0.0f;
+
 	private:
 
 		//For Translations
@@ -32,7 +33,7 @@ namespace spacey{ namespace motion{
 
 		//For Rotations
 		float angle = 0;
-		
+
 		//Max Value
 		float const accelMax = 10;
 	};

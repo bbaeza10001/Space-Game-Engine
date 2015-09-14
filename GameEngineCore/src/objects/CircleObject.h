@@ -2,6 +2,7 @@
 #include <GL\glew.h>
 #include <GL\GLU.h>
 #include <cmath>
+#include <math.h>
 
 namespace spacey{ namespace objects{
 		
@@ -10,9 +11,11 @@ namespace spacey{ namespace objects{
 			CircleObject();
 			CircleObject(float x_in, float y_in, float radius_in);
 			void Draw();
-			void DrawVector();
 			float radius;
 			float x_coord;
 			float y_coord;
+		private:
+			
+			
 		};
 } }
