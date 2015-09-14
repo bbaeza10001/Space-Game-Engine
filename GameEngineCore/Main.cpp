@@ -1,36 +1,38 @@
-#include <string>
-#include <GL\glew.h>
-#include <GL\GLU.h>
-#include <GL\glut.h>
-#include "src\objects\PlayerObject.h"
-#include "src\objects\CircleObject.h"
-#include "src\graphics\Window.h"
-#include "src\Input\InputController.h"
-#include "src\motion\MotionController.h"
+#include "src\include\Includes.h"
+#include <fstream>
+#include <iostream>
+#include <vector>
 
 using namespace spacey;
 using namespace graphics;
 using namespace objects;
 using namespace motion;
 using namespace input;
+using namespace std;
+using namespace level;
 
 
 int main(){
+	int width = 800;
+	int height = 600;
 
 	//Window creation
-	static Window window("A Soon To Be Space Game", 800, 600);
-	glClearColor(0.1f, 0.2f, 0.5f, 0.0f);
+	static Window window("Interstellar Explorer", width, height);
+	glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
 
 	// Construction
 	PlayerObject player;
-	CircleObject planet1(20, 100, 4), planet2(-30, -53, 20);
+	//CircleObject planet1(20, 100, 4), planet2(-30, -53, 20);
 	Motion motion;
 	Input input;
+	Level load;
+
+	vector<CircleObject> test = load.loadPlanets(test, "level.txt");
 
 	// opengl setup
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
-	gluOrtho2D(-800 / 2.0, 800 / 2.0, -600 / 2.0, 600 / 2.0);
+	gluOrtho2D(-width / 2.0, width / 2.0, -height / 2.0, height / 2.0);
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
 
@@ -43,8 +45,11 @@ int main(){
 		// Translation
 		glPushMatrix();
 		motion.applySpeed();
-		planet1.Draw();
-		planet2.Draw();
+		//planet1.Draw();
+		//planet2.Draw();
+		for (int i = 0; i < test.size(); i++){
+			test[i].Draw();
+		}
 		glPopMatrix();
 		
 		// Rotation
@@ -53,11 +58,8 @@ int main(){
 		player.Draw();
 		glPopMatrix();
 
-		//Object Movement functions
-		
-		//
-
 		window.update();
+		Sleep(0.825); //Controls how fast the game loop runs
 	}
 
 	return 0;

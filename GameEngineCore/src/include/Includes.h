@@ -1,0 +1,12 @@
+#pragma once
+#include <string>
+#include <GL\glew.h>
+#include <GL\GLU.h>
+#include <GL\glut.h>
+#include "..\objects\PlayerObject.h"
+#include "..\objects\CircleObject.h"
+#include "..\graphics\Window.h"
+#include "..\Input\InputController.h"
+#include "..\motion\MotionController.h"
+#include "../graphics/LoadLevel.h"
+#include <stdlib.h>
