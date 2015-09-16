@@ -2,6 +2,7 @@
 #include "../objects/CircleObject.h"
 #include <vector>
 #include <cmath>
+#include <iostream>
 
 namespace spacey{ namespace motion{
 
@@ -15,9 +16,10 @@ namespace spacey{ namespace motion{
 
 	private:
 		const float full_angle = 2.0f*3.141592654f;
-		float counter;
+		vector<float> counter;
 		vector<float> xDistance;
 		vector<float> yDistance;
+		vector<float> angle;
 	};
 
 } }

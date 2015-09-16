@@ -2,6 +2,8 @@
 #include <GL\glew.h>
 #include <GL\GLU.h>
 #include <GL\glut.h>
+#include <cmath>
+#include <iostream>
 
 namespace spacey{ namespace motion{
 
@@ -25,8 +27,10 @@ namespace spacey{ namespace motion{
 		//For Rotations
 		float angleIncriment = 0.0f;
 
+		//For Zooming
+		float zoom = 1;
 	private:
-
+		
 		//For Translations
 		float xspeed = 0;
 		float yspeed = 0;

@@ -51,9 +51,9 @@ int main(){
 		for (int i = 0; i < test.size(); i++){
 			test[i].Draw();
 		}
-		for (int i = 0; i < test.size(); i++){
+		/*for (int i = 0; i < test.size(); i++){
 			test2[i].Draw();
-		}
+		}*/
 		glPopMatrix();
 		
 		// Rotation
@@ -65,7 +65,6 @@ int main(){
 		//Orbits
 		glPushMatrix();
 		orb1.orbit(test);
-		orb2.orbit(test2);
 		glPopMatrix();
 
 		window.update();
