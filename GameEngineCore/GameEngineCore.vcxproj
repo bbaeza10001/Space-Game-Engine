@@ -39,7 +39,7 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>$(SolutionDir)Dependencies\GLEW\include;$(SolutionDir)Dependencies\GLFW\include;$(IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)Dependencies\GLEW\include;$(SolutionDir)Dependencies\GLFW\include;$(SolutionDir)Dependencies\SOIL\Include;$(IncludePath)</IncludePath>
     <LibraryPath>$(SolutionDir)Dependencies\GLFW\lib-vc2013;$(SolutionDir)Dependencies\GLEW\Lib;$(LibraryPath)</LibraryPath>
     <OutDir>$(SolutionDir)$Bin\$(Configuration)\</OutDir>
     <IntDir>$(SolutionDir)$Bin\$(Configuration)\Intermediates\</IntDir>
@@ -53,7 +53,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>GLEW_STATIC;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>GLEW_STATIC;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
@@ -80,10 +80,8 @@
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="src\graphics\LoadLevel.cpp" />
     <ClCompile Include="src\graphics\Window.cpp" />
+    <ClCompile Include="src\Input\Button.cpp" />
     <ClCompile Include="src\Input\InputController.cpp" />
-    <ClCompile Include="src\math\Vec2.cpp" />
-    <ClCompile Include="src\math\Vec3.cpp" />
-    <ClCompile Include="src\math\Vec4.cpp" />
     <ClCompile Include="src\motion\MotionController.cpp" />
     <ClCompile Include="src\motion\Orbits.cpp" />
     <ClCompile Include="src\objects\CircleObject.cpp" />
@@ -92,13 +90,10 @@
   <ItemGroup>
     <ClInclude Include="src\graphics\LoadLevel.h" />
     <ClInclude Include="src\include\Includes.h" />
+    <ClInclude Include="src\Input\Button.h" />
     <ClInclude Include="src\Input\InputController.h" />
     <ClInclude Include="src\motion\MotionController.h" />
     <ClInclude Include="src\graphics\Window.h" />
-    <ClInclude Include="src\math\Maths.h" />
-    <ClInclude Include="src\math\Vec2.h" />
-    <ClInclude Include="src\math\Vec3.h" />
-    <ClInclude Include="src\math\Vec4.h" />
     <ClInclude Include="src\motion\Orbits.h" />
     <ClInclude Include="src\objects\CircleObject.h" />
     <ClInclude Include="src\objects\PlayerObject.h" />

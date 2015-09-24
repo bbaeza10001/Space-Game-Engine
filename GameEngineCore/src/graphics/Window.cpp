@@ -22,6 +22,7 @@ namespace spacey{ namespace graphics{
 
 	Window::~Window(){
 		glfwTerminate();
+		close = true;
 	}
 
 	void Window::update() {
@@ -60,7 +61,10 @@ namespace spacey{ namespace graphics{
 	}
 
 	bool Window::closed() const{
-		return glfwWindowShouldClose(m_Window) == 1;
+		if (!close)
+			return glfwWindowShouldClose(m_Window);
+		if (close)
+			return close;
 	}
 
 	bool Window::isKeyPressed(unsigned int keycode) const{
@@ -108,6 +112,7 @@ namespace spacey{ namespace graphics{
 		Window* win = (Window*)glfwGetWindowUserPointer(window);
 		win->m_mx = xpos;
 		win->m_my = ypos;
+		
 	}
 
 } }
