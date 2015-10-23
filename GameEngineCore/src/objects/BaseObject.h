@@ -6,9 +6,9 @@
 namespace spacey{
 	namespace objects{
 		struct BaseObject{
+			virtual void Draw() = 0;
 			float x_coord;
 			float y_coord;
-			int orientation;
 		};
 	}
 }

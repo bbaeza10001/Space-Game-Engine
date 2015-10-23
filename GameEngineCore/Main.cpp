@@ -1,6 +1,10 @@
 #include "src\include\Includes.h"
-#include "src\graphics\Texture.h"
-#include "src\objects\Bullet.h"
+#include "src\motion\Orbits.h"
+#include <fstream>
+#include <iostream>
+#include <vector>
+#include "src\Input\Button.h"
+//#include <SOIL.h>
 
 using namespace spacey;
 using namespace graphics;
@@ -11,60 +15,50 @@ using namespace std;
 using namespace level;
 
 /*
-	TO DO:
-
-	** Figure out if turning some functions into librarys rather than object classes
-		is more efficient
-
-	** Add background photos
-
-	** Begin a sound engine
-
-	** Change player rotation to directional movement
-
-	** Add param to text doc to set object images
-
-	** Add collision detection
-
-	** Fix the image loader
-
+	CURRENT ISSUES:
+	1) background image rendering for start screen failing to 
+		run
+	2) glutBitmapCharacter function in button.cpp is undefined??
+		-Try updating freeglut library-
+	
 */
+
 
 int main(){
 	int width = 800;
 	int height = 600;
 
 	//Start Screen
-	//static Window start("Interstellar Explorer - Start", width, height);
+	static Window start("Interstellar Explorer - Start", width, height);
+	glClearColor(0.5f, 0.0f, 1.0f, 0.0f);
 
-	//// opengl setup
-	//glMatrixMode(GL_PROJECTION);
-	//glLoadIdentity();
-	//gluOrtho2D(0, width * 2, height * 2, 0); //Adjusts coordinate system to start from top left
-	//                                         //and be the correct width and height
-	//glMatrixMode(GL_MODELVIEW);
-	//glLoadIdentity();
+	// opengl setup
+	glMatrixMode(GL_PROJECTION);
+	glLoadIdentity();
+	gluOrtho2D(0, width * 2, height * 2, 0); //Adjusts coordinate system to start from top left
+	                                         //and be the correct width and height
+	glMatrixMode(GL_MODELVIEW);
+	glLoadIdentity();
 
-	//button b_start(&start, 250, 400, 50, 40, "Brandenbrug Tor.jpg");
-	//button b_exit(&start, 550, 400, 50, 40, "sample.bmp");
+	button b_start(&start, 250, 400, 50, 40, "Start game");
+	button b_exit(&start, 550, 400, 50, 40, "Exit");
 	bool exit = false;
 
-	//Texture test("Brandenbrug Tor.jpg");
+	while (!start.closed()){
+		start.clear();
 
-	//while (!start.closed()){
-	//	start.clear();
+		b_start.draw();
+		b_exit.draw();
+		if (b_start.clicked()){
+			start.~Window();
+		}
+		else if (b_exit.clicked()){
+			start.~Window();
+			exit = true;
+		}
 
-	//	b_start.draw();
-	//	b_exit.draw();
-	//	if (b_start.clicked()){
-	//		start.~Window();
-	//	}
-	//	else if (b_exit.clicked()){
-	//		start.~Window();
-	//		exit = true;
-	//	}
-	//	start.update();
-	//}
+		start.update();
+	}
 	
 	if (exit == false){
 
@@ -75,37 +69,43 @@ int main(){
 		Motion motion;
 		Input input; //see if changing to a library type file is possible/better
 		Level load;  //And this
+		Orbit orb1;  //Also this
+		Orbit orb2;
+
+		// Construction
+		PlayerObject player;
+		vector<CircleObject> test = load.loadPlanets(test, "level.txt");
 
 		// opengl setup
 		glMatrixMode(GL_PROJECTION);
 		glLoadIdentity();
 		gluOrtho2D(-width / 2.0, width / 2.0, -height / 2.0, height / 2.0); //Sets coordinate system to start in 
-		                                                                    //the middle of the screen like a standard graph
+		                                                                    //the middle of the screen like a graph
 		glMatrixMode(GL_MODELVIEW);
 		glLoadIdentity();
-		
-		// Construction
-		PlayerObject player(&window);
-		vector<CircleObject> test = load.loadPlanets(test, "level.txt");
-		Bullet bullet(player);
-
 
 		while (!window.closed()){
 			window.clear();
 
 			input.checkForInput(&window, &motion);
 
-			// Update Background
+			// Translation
 			glPushMatrix();
 			motion.applySpeed();
-			for (unsigned int i = 0; i < test.size(); i++){
+			for (int i = 0; i < test.size(); i++){
 				test[i].Draw();
 			}
 			glPopMatrix();
 
-			// Update Player 
+			// Rotation
 			glPushMatrix();
+			motion.applyRotation();
 			player.Draw();
+			glPopMatrix();
+
+			//Orbits
+			glPushMatrix();
+			orb1.orbit(test);
 			glPopMatrix();
 
 			window.update();

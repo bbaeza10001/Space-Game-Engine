@@ -21,7 +21,6 @@ namespace spacey{ namespace graphics{
 		bool m_MButtons[MAX_BUTTONS];
 		double m_mx, m_my;
 	public:
-		Window();
 		Window(const char *name, int width, int height);
 		~Window();
 		void update();

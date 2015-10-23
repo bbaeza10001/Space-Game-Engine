@@ -1,13 +1,13 @@
 
-//  Copyright (c) Mark J. Kilgard, 1994.
+C  Copyright (c) Mark J. Kilgard, 1994.
 
-// This program is freely distributable without licensing fees
-// and is provided without guarantee or warrantee expressed or
-// implied.  This program is -not- in the publi//domain.
+C  This program is freely distributable without licensing fees
+C  and is provided without guarantee or warrantee expressed or
+C  implied.  This program is -not- in the public domain.
 
-//  GLUT Fortran header file
+C  GLUT Fortran header file
 
-// display mode bit masks
+C  display mode bit masks
 	integer*4 GLUT_RGB
 	parameter ( GLUT_RGB = 0 )
 	integer*4 GLUT_RGBA
@@ -31,7 +31,7 @@
 	integer*4 GLUT_STEREO
 	parameter ( GLUT_STEREO = 256 )
 
-// mouse buttons
+C  mouse buttons
 	integer*4 GLUT_LEFT_BUTTON
 	parameter ( GLUT_LEFT_BUTTON = 0 )
 	integer*4 GLUT_MIDDLE_BUTTON
@@ -39,13 +39,13 @@
 	integer*4 GLUT_RIGHT_BUTTON
 	parameter ( GLUT_RIGHT_BUTTON = 2 )
 
-// mouse button callback state
+C  mouse button callback state
 	integer*4 GLUT_DOWN
 	parameter ( GLUT_DOWN = 0 )
 	integer*4 GLUT_UP
 	parameter ( GLUT_UP = 1 )
 
-// special key callback values
+C  special key callback values
 	integer*4 GLUT_KEY_F1
 	parameter ( GLUT_KEY_F1 = 1 )
 	integer*4 GLUT_KEY_F2
@@ -89,25 +89,25 @@
 	integer*4 GLUT_KEY_INSERT
 	parameter ( GLUT_KEY_INSERT = 108 )
 	
-// entry/exit callback state
+C  entry/exit callback state
 	integer*4 GLUT_LEFT
 	parameter ( GLUT_LEFT = 0 )
 	integer*4 GLUT_ENTERED
 	parameter ( GLUT_ENTERED = 1 )
 
-// menu usage callback state
+C  menu usage callback state
 	integer*4 GLUT_MENU_NOT_IN_USE
 	parameter ( GLUT_MENU_NOT_IN_USE = 0 )
 	integer*4 GLUT_MENU_IN_USE
 	parameter ( GLUT_MENU_IN_USE = 1 )
 
-// visibility callback state
+C  visibility callback state
 	integer*4 GLUT_NOT_VISIBLE
 	parameter ( GLUT_NOT_VISIBLE = 0 )
 	integer*4 GLUT_VISIBLE
 	parameter ( GLUT_VISIBLE = 1 )
 
-// color index component selection values
+C  color index component selection values
 	integer*4 GLUT_RED
 	parameter ( GLUT_RED = 0 )
 	integer*4 GLUT_GREEN
@@ -115,27 +115,27 @@
 	integer*4 GLUT_BLUE
 	parameter ( GLUT_BLUE = 2 )
 
-// XXX Unfortunately, SGI's Fortran compiler links with
-// EXTERNAL data even if it is not used.  This defeats
-// the purpose of GLUT naming fonts via opaque symbols.
-// This means GLUT Fortran programmers should explicitly
-// declared EXTERNAL GLUT fonts in subroutines where
-// the fonts are used.
+C  XXX Unfortunately, SGI's Fortran compiler links with
+C  EXTERNAL data even if it is not used.  This defeats
+C  the purpose of GLUT naming fonts via opaque symbols.
+C  This means GLUT Fortran programmers should explicitly
+C  declared EXTERNAL GLUT fonts in subroutines where
+C  the fonts are used.
 
-// stroke font opaque names
-//      external GLUT_STROKE_ROMAN
-//      external GLUT_STROKE_MONO_ROMAN
+C  stroke font opaque names
+C       external GLUT_STROKE_ROMAN
+C       external GLUT_STROKE_MONO_ROMAN
 
-// bitmap font opaque names
-//      external GLUT_BITMAP_9_BY_15
-//      external GLUT_BITMAP_8_BY_13
-//      external GLUT_BITMAP_TIMES_ROMAN_10
-//      external GLUT_BITMAP_TIMES_ROMAN_24
-//      external GLUT_BITMAP_HELVETICA_10
-//      external GLUT_BITMAP_HELVETICA_12
-//      external GLUT_BITMAP_HELVETICA_18
+C  bitmap font opaque names
+C       external GLUT_BITMAP_9_BY_15
+C       external GLUT_BITMAP_8_BY_13
+C       external GLUT_BITMAP_TIMES_ROMAN_10
+C       external GLUT_BITMAP_TIMES_ROMAN_24
+C       external GLUT_BITMAP_HELVETICA_10
+C       external GLUT_BITMAP_HELVETICA_12
+C       external GLUT_BITMAP_HELVETICA_18
 
-// glutGet parameters
+C  glutGet parameters
 	integer*4 GLUT_WINDOW_X
 	parameter ( GLUT_WINDOW_X = 100 )
 	integer*4 GLUT_WINDOW_Y
@@ -207,7 +207,7 @@
 	integer*4 GLUT_ELAPSED_TIME
 	parameter ( GLUT_ELAPSED_TIME = 700 )
 
-// glutDeviceGet parameters
+C  glutDeviceGet parameters
 	integer*4 GLUT_HAS_KEYBOARD
 	parameter ( GLUT_HAS_KEYBOARD = 600 )
 	integer*4 GLUT_HAS_MOUSE
@@ -229,7 +229,7 @@
 	integer*4 GLUT_NUM_TABLET_BUTTONS
 	parameter ( GLUT_NUM_TABLET_BUTTONS = 609 )
 
-// glutLayerGet parameters
+C  glutLayerGet parameters
 	integer*4 GLUT_OVERLAY_POSSIBLE
 	parameter ( GLUT_OVERLAY_POSSIBLE = 800 )
 	integer*4 GLUT_LAYER_IN_USE
@@ -243,13 +243,13 @@
 	integer*4 GLUT_OVERLAY_DAMAGED
 	parameter ( GLUT_OVERLAY_DAMAGED = 805 )
 
-// glutUseLayer parameters
+C  glutUseLayer parameters
 	integer*4 GLUT_NORMAL
 	parameter ( GLUT_NORMAL = 0 )
 	integer*4 GLUT_OVERLAY
 	parameter ( GLUT_OVERLAY = 1 )
 
-// glutGetModifiers return mask
+C  glutGetModifiers return mask
 	integer*4 GLUT_ACTIVE_SHIFT
 	parameter ( GLUT_ACTIVE_SHIFT = 1 )
 	integer*4 GLUT_ACTIVE_CTRL
@@ -257,7 +257,7 @@
 	integer*4 GLUT_ACTIVE_ALT
 	parameter ( GLUT_ACTIVE_ALT = 4 )
 
-// glutSetCursor parameters
+C  glutSetCursor parameters
 	integer*4 GLUT_CURSOR_RIGHT_ARROW
 	parameter ( GLUT_CURSOR_RIGHT_ARROW = 0 )
 	integer*4 GLUT_CURSOR_LEFT_ARROW
@@ -305,7 +305,7 @@
 	integer*4 GLUT_CURSOR_FULL_CROSSHAIR
 	parameter ( GLUT_CURSOR_FULL_CROSSHAIR = 102 )
 
-// GLUT functions
+C  GLUT functions
 	integer*4 glutcreatewindow
 	integer*4 glutcreatesubwindow
 	integer*4 glutgetwindow
@@ -316,6 +316,6 @@
 	integer*4 glutdeviceget
 	integer*4 glutextensionsupported
 
-// GLUT NULL name
+C  GLUT NULL name
 	external glutnull
 

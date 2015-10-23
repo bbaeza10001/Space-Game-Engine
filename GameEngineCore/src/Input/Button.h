@@ -1,8 +1,5 @@
-#pragma once
-
 #include "../graphics/Window.h"
-#include "../graphics/Texture.h"
-#include <string>
+#include <GL\freeglut.h>
 
 namespace spacey{ namespace input{
 
@@ -12,18 +9,18 @@ namespace spacey{ namespace input{
 	class button{
 	public:
 		button();
-		button(Window* window, double x, double y, double width, double height, string filename);
+		button(Window* window, double x, double y, double width, double height, char *text);
 		void draw();
 		bool clicked();
 
 	private:
 		//Member Variables
 		Window* m_window;
+		char *m_text;
 		double m_x;
 		double m_y;
 		double m_width;
 		double m_height;
-		string m_filename;
 	};
 
 } }

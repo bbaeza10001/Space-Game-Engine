@@ -4,10 +4,6 @@ namespace spacey{ namespace graphics{
 	
 	void window_resize(GLFWwindow *window, int width, int height);
 
-	Window::Window(){
-
-	}
-
 	Window::Window(const char *name, int width, int height){
 		m_Name = name;
 		m_Width = width;
