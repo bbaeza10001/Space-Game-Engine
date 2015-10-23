@@ -2,7 +2,7 @@
 #include <GL\glew.h>
 #include <GL\GLU.h>
 #include <cmath>
-#include "../graphics/Window.h";
+#include "../graphics/Window.h"
 
 namespace spacey{ namespace objects{
 

@@ -1,7 +1,6 @@
 #pragma once
 #include <GL\glew.h>
 #include <GL\GLU.h>
-#include <GL\glut.h>
 #include <cmath>
 #include <iostream>
 
