@@ -12,10 +12,9 @@ namespace spacey{ namespace motion{
 		for (float i = 0.0f; i < starSystem.size(); i++){
 			xDistance.push_back((abs(starSystem[0].x_coord - starSystem[i].x_coord)));
 			yDistance.push_back((abs(starSystem[0].y_coord - starSystem[i].y_coord)));
-			angle.push_back(atan(yDistance[i] / xDistance[i]));
+			angle.push_back((atan(yDistance[i] / xDistance[i])) * 0.01);
 			counter.push_back(0.0f);
 		}
-		
 
 		for (float i = 1.0f; i < starSystem.size(); i++){
 			counter[i] += angle[i]; //Angle that the object moves by 
