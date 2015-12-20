@@ -24,7 +24,7 @@ namespace spacey{ namespace motion{
 		float yacceleration = 0;
 		
 		//For Rotations
-		float angleIncriment = 0.0f;
+		float angle = 0;
 
 		//For Zooming
 		float zoom = 1;
@@ -35,7 +35,7 @@ namespace spacey{ namespace motion{
 		float yspeed = 0;
 
 		//For Rotations
-		float angle = 0;
+		const float angleIncriment = 1.0f;
 
 		//Max Value
 		float const accelMax = 10;

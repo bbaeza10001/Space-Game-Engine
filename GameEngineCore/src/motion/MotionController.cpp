@@ -24,11 +24,27 @@ namespace spacey{ namespace motion{
 	}
 
 	void Motion::rotateLeft(){
-		angleIncriment += 0.001f;
+		angle -= angleIncriment;
+
+		//Angle resetting to stay within 360 degrees
+		while (angle >= 360){
+			angle -= 360;
+		}
+		while (angle < 0){
+			angle += 360;
+		}
 	}
 
 	void Motion::rotateRight(){
-		angleIncriment += -0.001f;
+		angle += angleIncriment;
+
+		//Angle resetting to stay within 360 degrees
+		while (angle >= 360){
+			angle -= 360;
+		}
+		while (angle < 0){
+			angle += 360;
+		}
 	}
 
 	void Motion::applySpeed(){
@@ -41,11 +57,10 @@ namespace spacey{ namespace motion{
 		}
 
 		glTranslatef(xspeed, yspeed, 0);
-		glScalef(zoom, zoom, 1);
+		//glScalef(zoom, zoom, 1);
 	}
 
 	void Motion::applyRotation(){
-		angle += angleIncriment;
-		glRotatef(angle, 0, 0, 1);
+		glRotatef(-angle, 0, 0, 1);
 	}
 } }
