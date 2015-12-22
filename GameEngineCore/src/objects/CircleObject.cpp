@@ -18,7 +18,6 @@ namespace spacey{
 		void CircleObject::Draw(){
 			if (imageLoaded){
 				//Draw circle w/ a texture
-
 				// Enable the texture for OpenGL.
 				glEnable(GL_TEXTURE_2D);
 				glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR); //GL_NEAREST = no smoothing
@@ -28,6 +27,7 @@ namespace spacey{
 				//Draw the texture
 				glPushMatrix();
 
+				glTranslatef(x_coord, y_coord, 0);
 				glBegin(GL_QUADS);
 				glTexCoord2d(0, v3);		 glVertex2d(x_coord - radius, y_coord - radius);
 				glTexCoord2d(0, 0);		 glVertex2d(x_coord - radius, y_coord + radius);

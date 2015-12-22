@@ -48,7 +48,10 @@
     <ClCompile Include="src\objects\BaseObject.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\graphics\bg.cpp">
+    <ClCompile Include="src\objects\BG.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\graphics\bg_Texture.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -86,7 +89,10 @@
     <ClInclude Include="src\objects\BaseObject.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\graphics\bg.h">
+    <ClInclude Include="src\objects\BG.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\graphics\bg_Texture.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -104,6 +110,30 @@
       <Filter>Resource Files</Filter>
     </Image>
     <Image Include="Imgs\earth.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Imgs\neptune.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Imgs\pluto.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Imgs\saturn.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Imgs\jupiter.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Imgs\mars.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Imgs\cold.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Imgs\sun.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Imgs\uranus.png">
       <Filter>Resource Files</Filter>
     </Image>
   </ItemGroup>

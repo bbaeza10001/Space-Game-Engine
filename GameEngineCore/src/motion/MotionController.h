@@ -22,6 +22,8 @@ namespace spacey{ namespace motion{
 		//For Translations
 		float xacceleration = 0;
 		float yacceleration = 0;
+		float xspeed = 0;
+		float yspeed = 0;
 		
 		//For Rotations
 		float angle = 0;
@@ -29,16 +31,14 @@ namespace spacey{ namespace motion{
 		//For Zooming
 		float zoom = 1;
 	private:
-		
-		//For Translations
-		float xspeed = 0;
-		float yspeed = 0;
-
-		//For Rotations
+		//Incriments
+		const float speeInc = 0.00001;
 		const float angleIncriment = 1.0f;
+		const float zoomInc = 0.0001;
 
-		//Max Value
-		float const accelMax = 10;
+		//Max Values
+		float const accelMax = 5;
+		float const zoomMax = 0.7;
 	};
 
 } }

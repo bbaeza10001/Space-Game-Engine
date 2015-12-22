@@ -33,8 +33,6 @@ namespace spacey{ namespace input{
 				}
 			}
 
-			if (motionObj->zoom > 0)
-				motionObj->zoom -= 0.0001;
 		}
 
 		//Vertical Movement
@@ -51,9 +49,6 @@ namespace spacey{ namespace input{
 					motionObj->rotateLeft();
 				}
 			}
-
-			if (motionObj->zoom > 0)
-				motionObj->zoom -= 0.0001;
 		} 
 		else if (window->isKeyPressed(GLFW_KEY_S) && !window->isKeyPressed(GLFW_KEY_A)
 			&& !window->isKeyPressed(GLFW_KEY_D)){
@@ -69,8 +64,6 @@ namespace spacey{ namespace input{
 				}
 			}
 
-			if (motionObj->zoom > 0)
-				motionObj->zoom -= 0.0001;
 		}
 
 		//Checking if moving at an angle and turns/moves player accordingly

@@ -18,5 +18,5 @@ namespace spacey{ namespace objects{
 			float radius;
 			float x_coord;
 			float y_coord;
-		};
+	};
 } }

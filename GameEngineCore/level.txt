@@ -1,7 +1,7 @@
 START
 6
 -1800 0 500 Imgs/sun.png
--500 -1500 20 Imgs/pluto.png
+-500 -1500 20 Imgs/cold.png
 -300 -1300 30 Imgs/mars.png
 0 40 40 Imgs/earth.png
 200 1200 50 Imgs/jupiter.png

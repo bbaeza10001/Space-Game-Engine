@@ -81,7 +81,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp" />
-    <ClCompile Include="src\graphics\bg.cpp" />
+    <ClCompile Include="src\graphics\bg_Texture.cpp" />
     <ClCompile Include="src\graphics\LoadLevel.cpp" />
     <ClCompile Include="src\graphics\lodepng.cpp" />
     <ClCompile Include="src\graphics\Window.cpp" />
@@ -90,11 +90,12 @@
     <ClCompile Include="src\motion\MotionController.cpp" />
     <ClCompile Include="src\motion\Orbits.cpp" />
     <ClCompile Include="src\objects\BaseObject.cpp" />
+    <ClCompile Include="src\objects\BG.cpp" />
     <ClCompile Include="src\objects\CircleObject.cpp" />
     <ClCompile Include="src\objects\PlayerObject.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\graphics\bg.h" />
+    <ClInclude Include="src\graphics\bg_Texture.h" />
     <ClInclude Include="src\graphics\LoadLevel.h" />
     <ClInclude Include="src\graphics\lodepng.h" />
     <ClInclude Include="src\include\Includes.h" />
@@ -104,15 +105,24 @@
     <ClInclude Include="src\graphics\Window.h" />
     <ClInclude Include="src\motion\Orbits.h" />
     <ClInclude Include="src\objects\BaseObject.h" />
+    <ClInclude Include="src\objects\BG.h" />
     <ClInclude Include="src\objects\CircleObject.h" />
     <ClInclude Include="src\objects\PlayerObject.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Imgs\bg.png" />
+    <Image Include="Imgs\cold.png" />
     <Image Include="Imgs\exit.png" />
     <Image Include="Imgs\earth.png" />
+    <Image Include="Imgs\jupiter.png" />
+    <Image Include="Imgs\mars.png" />
+    <Image Include="Imgs\neptune.png" />
+    <Image Include="Imgs\pluto.png" />
+    <Image Include="Imgs\saturn.png" />
     <Image Include="Imgs\ship.png" />
     <Image Include="Imgs\start.png" />
+    <Image Include="Imgs\sun.png" />
+    <Image Include="Imgs\uranus.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

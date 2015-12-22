@@ -4,23 +4,46 @@ namespace spacey{ namespace motion{
 
 	void Motion::dirRight(){
 		if (xacceleration < accelMax)
-			xacceleration += 0.001;
-
+			xacceleration += speeInc;
+		if (zoom > zoomMax){
+			zoom -= zoomInc;
+		}
+		else{
+			zoom = zoomMax;
+		}
 	}
 
 	void Motion::dirLeft(){
 		if (xacceleration > -accelMax)
-			xacceleration -= 0.001;
+			xacceleration -= speeInc;
+		if (zoom > zoomMax){
+			zoom -= zoomInc;
+		}
+		else{
+			zoom = zoomMax;
+		}
 	}
 
 	void Motion::dirUp(){
 		if (yacceleration < accelMax)
-			yacceleration += 0.001;
+			yacceleration += speeInc;
+		if (zoom > zoomMax){
+			zoom -= zoomInc;
+		}
+		else{
+			zoom = zoomMax;
+		}
 	}
 
 	void Motion::dirDown(){
 		if (yacceleration > -accelMax)
-			yacceleration -= 0.001;
+			yacceleration -= speeInc;
+		if (zoom > zoomMax){
+			zoom -= zoomInc;
+		}
+		else{
+			zoom = zoomMax;
+		}
 	}
 
 	void Motion::rotateLeft(){
@@ -56,8 +79,10 @@ namespace spacey{ namespace motion{
 			zoom = 1;
 		}
 
-		glTranslatef(xspeed, yspeed, 0);
-		//glScalef(zoom, zoom, 1);
+		if (zoom < zoomMax)
+			zoom = zoomMax;
+
+		glScalef(zoom, zoom, 1);
 	}
 
 	void Motion::applyRotation(){
