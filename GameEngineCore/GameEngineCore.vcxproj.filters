@@ -45,6 +45,12 @@
     <ClCompile Include="src\graphics\lodepng.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\objects\BaseObject.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\graphics\bg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\graphics\Window.h">
@@ -77,12 +83,27 @@
     <ClInclude Include="src\graphics\lodepng.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="src\objects\BaseObject.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\graphics\bg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Image Include="Imgs\start.png">
       <Filter>Resource Files</Filter>
     </Image>
     <Image Include="Imgs\exit.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Imgs\ship.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Imgs\bg.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Imgs\earth.png">
       <Filter>Resource Files</Filter>
     </Image>
   </ItemGroup>

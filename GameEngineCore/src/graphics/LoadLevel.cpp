@@ -11,7 +11,7 @@ namespace spacey{ namespace level{
 			cout << "Opening level file named '" << fileName << "' failed.\n";
 		}
 		else{
-			string line;
+			string line, filename;
 			int x, y, size, amount;
 
 			while (file.is_open()){
@@ -21,9 +21,9 @@ namespace spacey{ namespace level{
 					file >> amount;
 
 					for (int i = 0; i < amount; i++){
-						file >> x >> y >> size; //read the values for the planet and add them to the vector
+						file >> x >> y >> size >> filename; //read the values for the planet and add them to the vector
 
-						CircleObject temp(x, y, size);
+						CircleObject temp(x, y, size, filename);
 
 						systemVector.push_back(temp);
 						cout << "Added element to vector.\n";
