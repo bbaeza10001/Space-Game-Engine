@@ -54,6 +54,9 @@
     <ClCompile Include="src\graphics\bg_Texture.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\motion\Collision.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\graphics\Window.h">
@@ -95,6 +98,9 @@
     <ClInclude Include="src\graphics\bg_Texture.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="src\motion\Collision.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Image Include="Imgs\start.png">
@@ -134,6 +140,9 @@
       <Filter>Resource Files</Filter>
     </Image>
     <Image Include="Imgs\uranus.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Imgs\health.png">
       <Filter>Resource Files</Filter>
     </Image>
   </ItemGroup>

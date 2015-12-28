@@ -1,17 +1,11 @@
-﻿Build started 12/22/2015 1:31:31 PM.
+﻿Build started 12/28/2015 1:28:10 PM.
      1>Project "C:\Users\Baeza\Documents\Visual Studio 2013\Projects\Game Engines\Spacey-Engine-Interstellar-Version\GameEngineCore\GameEngineCore.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D GLEW_STATIC /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"C:\Users\Baeza\Documents\Visual Studio 2013\Projects\Game Engines\Spacey-Engine-Interstellar-Version\$Bin\Debug\Intermediates\\" /Fd"C:\Users\Baeza\Documents\Visual Studio 2013\Projects\Game Engines\Spacey-Engine-Interstellar-Version\$Bin\Debug\Intermediates\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Main.cpp src\Input\InputController.cpp src\motion\MotionController.cpp src\objects\BG.cpp
-         Main.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D GLEW_STATIC /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"C:\Users\Baeza\Documents\Visual Studio 2013\Projects\Game Engines\Spacey-Engine-Interstellar-Version\$Bin\Debug\Intermediates\\" /Fd"C:\Users\Baeza\Documents\Visual Studio 2013\Projects\Game Engines\Spacey-Engine-Interstellar-Version\$Bin\Debug\Intermediates\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt src\objects\PlayerObject.cpp
+         PlayerObject.cpp
      1>c:\users\baeza\documents\visual studio 2013\projects\game engines\spacey-engine-interstellar-version\gameenginecore\src\motion\motioncontroller.h(35): warning C4305: 'initializing' : truncation from 'double' to 'const float'
      1>c:\users\baeza\documents\visual studio 2013\projects\game engines\spacey-engine-interstellar-version\gameenginecore\src\motion\motioncontroller.h(37): warning C4305: 'initializing' : truncation from 'double' to 'const float'
      1>c:\users\baeza\documents\visual studio 2013\projects\game engines\spacey-engine-interstellar-version\gameenginecore\src\motion\motioncontroller.h(41): warning C4305: 'initializing' : truncation from 'double' to 'const float'
-     1>c:\users\baeza\documents\visual studio 2013\projects\game engines\spacey-engine-interstellar-version\gameenginecore\main.cpp(114): warning C4244: 'argument' : conversion from 'double' to 'DWORD', possible loss of data
-         Generating Code...
-         Skipping... (no relevant changes detected)
-         BG.cpp
-         MotionController.cpp
-         InputController.cpp
        Link:
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Baeza\Documents\Visual Studio 2013\Projects\Game Engines\Spacey-Engine-Interstellar-Version\$Bin\Debug\GameEngineCore.exe" /INCREMENTAL /NOLOGO glu32.lib glfw3.lib opengl32.lib glew32s.lib FreeImage.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /NODEFAULTLIB:/NODEFAULTLIB:msvcrt /NODEFAULTLIB:/NODEFAULTLIB:libcmt /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Baeza\Documents\Visual Studio 2013\Projects\Game Engines\Spacey-Engine-Interstellar-Version\$Bin\Debug\GameEngineCore.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Baeza\Documents\Visual Studio 2013\Projects\Game Engines\Spacey-Engine-Interstellar-Version\$Bin\Debug\GameEngineCore.lib" /MACHINE:X86 "C:\Users\Baeza\Documents\Visual Studio 2013\Projects\Game Engines\Spacey-Engine-Interstellar-Version\$Bin\Debug\Intermediates\Main.obj"
          "C:\Users\Baeza\Documents\Visual Studio 2013\Projects\Game Engines\Spacey-Engine-Interstellar-Version\$Bin\Debug\Intermediates\bg_Texture.obj"
@@ -20,18 +14,16 @@
          "C:\Users\Baeza\Documents\Visual Studio 2013\Projects\Game Engines\Spacey-Engine-Interstellar-Version\$Bin\Debug\Intermediates\Window.obj"
          "C:\Users\Baeza\Documents\Visual Studio 2013\Projects\Game Engines\Spacey-Engine-Interstellar-Version\$Bin\Debug\Intermediates\Button.obj"
          "C:\Users\Baeza\Documents\Visual Studio 2013\Projects\Game Engines\Spacey-Engine-Interstellar-Version\$Bin\Debug\Intermediates\InputController.obj"
+         "C:\Users\Baeza\Documents\Visual Studio 2013\Projects\Game Engines\Spacey-Engine-Interstellar-Version\$Bin\Debug\Intermediates\Collision.obj"
          "C:\Users\Baeza\Documents\Visual Studio 2013\Projects\Game Engines\Spacey-Engine-Interstellar-Version\$Bin\Debug\Intermediates\MotionController.obj"
          "C:\Users\Baeza\Documents\Visual Studio 2013\Projects\Game Engines\Spacey-Engine-Interstellar-Version\$Bin\Debug\Intermediates\Orbits.obj"
          "C:\Users\Baeza\Documents\Visual Studio 2013\Projects\Game Engines\Spacey-Engine-Interstellar-Version\$Bin\Debug\Intermediates\BaseObject.obj"
          "C:\Users\Baeza\Documents\Visual Studio 2013\Projects\Game Engines\Spacey-Engine-Interstellar-Version\$Bin\Debug\Intermediates\BG.obj"
          "C:\Users\Baeza\Documents\Visual Studio 2013\Projects\Game Engines\Spacey-Engine-Interstellar-Version\$Bin\Debug\Intermediates\CircleObject.obj"
          "C:\Users\Baeza\Documents\Visual Studio 2013\Projects\Game Engines\Spacey-Engine-Interstellar-Version\$Bin\Debug\Intermediates\PlayerObject.obj"
-     1>LINK : warning LNK4098: defaultlib 'MSVCRT' conflicts with use of other libs; use /NODEFAULTLIB:library
-     1>LINK : warning LNK4098: defaultlib 'LIBCMT' conflicts with use of other libs; use /NODEFAULTLIB:library
-     1>glew32s.lib(glew.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'glew32s.lib(glew.obj)' or at 'C:\Users\Baeza\Documents\Visual Studio 2013\Projects\Game Engines\Spacey-Engine-Interstellar-Version\$Bin\Debug\vc120.pdb'; linking object as if no debug info
          GameEngineCore.vcxproj -> C:\Users\Baeza\Documents\Visual Studio 2013\Projects\Game Engines\Spacey-Engine-Interstellar-Version\$Bin\Debug\GameEngineCore.exe
      1>Done Building Project "C:\Users\Baeza\Documents\Visual Studio 2013\Projects\Game Engines\Spacey-Engine-Interstellar-Version\GameEngineCore\GameEngineCore.vcxproj" (Build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:08.70
+Time Elapsed 00:00:06.70

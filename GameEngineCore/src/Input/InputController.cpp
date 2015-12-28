@@ -2,12 +2,20 @@
 
 namespace spacey{ namespace input{
 
-	void checkForInput(Window* window, Motion* motionObj){
+	void checkForInput(Window* window, Motion* motionObj, BG &bckgrnd){
+		int colCode = bckgrnd.testCollision();
 
 		//Horizontal Movement
 		if (window->isKeyPressed(GLFW_KEY_D) && !window->isKeyPressed(GLFW_KEY_W) 
 			&& !window->isKeyPressed(GLFW_KEY_S)){
-			motionObj->dirRight();
+
+			if (colCode != 2){
+				motionObj->dirRight();
+			}
+			else{
+				motionObj->xspeed = 0;
+				motionObj->xacceleration = 0;
+			}
 
 			//Turning the player to point where they are going
 			if (motionObj->angle != 90){
@@ -21,7 +29,14 @@ namespace spacey{ namespace input{
 		}
 		else if (window->isKeyPressed(GLFW_KEY_A) && !window->isKeyPressed(GLFW_KEY_W)
 			&& !window->isKeyPressed(GLFW_KEY_S)){
-			motionObj->dirLeft();
+
+			if (colCode != 1){
+				motionObj->dirLeft();
+			}
+			else{
+				motionObj->xspeed = 0;
+				motionObj->xacceleration = 0;
+			}
 
 			//Turning the player to point where they are going
 			if (motionObj->angle != 270){
@@ -38,7 +53,14 @@ namespace spacey{ namespace input{
 		//Vertical Movement
 		if (window->isKeyPressed(GLFW_KEY_W) && !window->isKeyPressed(GLFW_KEY_A)
 			&& !window->isKeyPressed(GLFW_KEY_D)){
-			motionObj->dirUp();
+
+			if (colCode != 3){
+				motionObj->dirUp();
+			}
+			else{
+				motionObj->yspeed = 0;
+				motionObj->yacceleration = 0;
+			}
 
 			//Turning the player to point where they are going
 			if (motionObj->angle != 0){
@@ -52,7 +74,14 @@ namespace spacey{ namespace input{
 		} 
 		else if (window->isKeyPressed(GLFW_KEY_S) && !window->isKeyPressed(GLFW_KEY_A)
 			&& !window->isKeyPressed(GLFW_KEY_D)){
-			motionObj->dirDown();
+
+			if (colCode != 4){
+				motionObj->dirDown();
+			}
+			else{
+				motionObj->yspeed = 0;
+				motionObj->yacceleration = 0;
+			}
 
 			//Turning the player to point where they are going
 			if (motionObj->angle != 180){
@@ -68,8 +97,17 @@ namespace spacey{ namespace input{
 
 		//Checking if moving at an angle and turns/moves player accordingly
 		if (window->isKeyPressed(GLFW_KEY_W) && window->isKeyPressed(GLFW_KEY_D)){
-			motionObj->dirRight();
-			motionObj->dirUp();
+			
+			if (colCode != 2 && colCode != 3){
+				motionObj->dirRight();
+				motionObj->dirUp();
+			}
+			else{
+				motionObj->xspeed = 0;
+				motionObj->xacceleration = 0;
+				motionObj->yspeed = 0;
+				motionObj->yacceleration = 0;
+			}
 
 			if (motionObj->angle != 45){
 				if (motionObj->angle >= 225 || motionObj->angle < 45){
@@ -81,8 +119,17 @@ namespace spacey{ namespace input{
 			}
 		}
 		else if (window->isKeyPressed(GLFW_KEY_W) && window->isKeyPressed(GLFW_KEY_A)){
-			motionObj->dirLeft();
-			motionObj->dirUp();
+
+			if (colCode != 1 && colCode != 3){
+				motionObj->dirLeft();
+				motionObj->dirUp();
+			}
+			else{
+				motionObj->xspeed = 0;
+				motionObj->xacceleration = 0;
+				motionObj->yspeed = 0;
+				motionObj->yacceleration = 0;
+			}
 
 			if (motionObj->angle != 315){
 				if (motionObj->angle >= 135 && motionObj->angle < 315){
@@ -94,8 +141,17 @@ namespace spacey{ namespace input{
 			}
 		}
 		else if (window->isKeyPressed(GLFW_KEY_S) && window->isKeyPressed(GLFW_KEY_D)){
-			motionObj->dirRight();
-			motionObj->dirDown();
+
+			if (colCode != 2 && colCode != 4){
+				motionObj->dirRight();
+				motionObj->dirDown();
+			}
+			else{
+				motionObj->xspeed = 0;
+				motionObj->xacceleration = 0;
+				motionObj->yspeed = 0;
+				motionObj->yacceleration = 0;
+			}
 
 			if (motionObj->angle != 135){
 				if (motionObj->angle >= 315 || motionObj->angle < 135){
@@ -107,8 +163,17 @@ namespace spacey{ namespace input{
 			}
 		}
 		else if (window->isKeyPressed(GLFW_KEY_S) && window->isKeyPressed(GLFW_KEY_A)){
-			motionObj->dirLeft();
-			motionObj->dirDown();
+			
+			if (colCode != 1 && colCode != 4){
+				motionObj->dirLeft();
+				motionObj->dirDown();
+			}
+			else{
+				motionObj->xspeed = 0;
+				motionObj->xacceleration = 0;
+				motionObj->yspeed = 0;
+				motionObj->yacceleration = 0;
+			}
 
 			if (motionObj->angle != 225){
 				if (motionObj->angle >= 45 && motionObj->angle < 225){
@@ -119,10 +184,6 @@ namespace spacey{ namespace input{
 				}
 			}
 		}
-		else {
-			
-
-		}
 
 		//Things being done once nothing is being pressed
 		if (!window->isKeyPressed(GLFW_KEY_D) && !window->isKeyPressed(GLFW_KEY_A) &&
@@ -132,6 +193,20 @@ namespace spacey{ namespace input{
 				motionObj->zoom += 0.0005;
 
 			//Slowing player back to a stop
+			if (motionObj->xspeed > 0){
+				motionObj->xspeed -= 0.001;
+			}
+			else if (motionObj->xspeed < 0){
+				motionObj->xspeed += 0.001;
+			}
+
+			if (motionObj->yspeed > 0){
+				motionObj->yspeed -= 0.001;
+			}
+			else if (motionObj->yspeed < 0){
+				motionObj->yspeed += 0.001;
+			}
+
 			if (motionObj->xacceleration > 0){
 				motionObj->xacceleration -= 0.001;
 			}

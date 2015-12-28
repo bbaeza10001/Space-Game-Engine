@@ -87,6 +87,7 @@
     <ClCompile Include="src\graphics\Window.cpp" />
     <ClCompile Include="src\Input\Button.cpp" />
     <ClCompile Include="src\Input\InputController.cpp" />
+    <ClCompile Include="src\motion\Collision.cpp" />
     <ClCompile Include="src\motion\MotionController.cpp" />
     <ClCompile Include="src\motion\Orbits.cpp" />
     <ClCompile Include="src\objects\BaseObject.cpp" />
@@ -101,6 +102,7 @@
     <ClInclude Include="src\include\Includes.h" />
     <ClInclude Include="src\Input\Button.h" />
     <ClInclude Include="src\Input\InputController.h" />
+    <ClInclude Include="src\motion\Collision.h" />
     <ClInclude Include="src\motion\MotionController.h" />
     <ClInclude Include="src\graphics\Window.h" />
     <ClInclude Include="src\motion\Orbits.h" />
@@ -114,6 +116,7 @@
     <Image Include="Imgs\cold.png" />
     <Image Include="Imgs\exit.png" />
     <Image Include="Imgs\earth.png" />
+    <Image Include="Imgs\health.png" />
     <Image Include="Imgs\jupiter.png" />
     <Image Include="Imgs\mars.png" />
     <Image Include="Imgs\neptune.png" />

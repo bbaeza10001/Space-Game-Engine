@@ -1,7 +1,6 @@
 #include "src\include\Includes.h"
 #include "src\graphics\bg_Texture.h"
 #include "src\objects\BG.h"
-#include <thread>
 
 using namespace spacey;
 using namespace graphics;
@@ -21,7 +20,9 @@ using namespace background;
 
 	** Begin a sound engine
 
-	** Add collision detection
+	** Improve collision detection
+
+	** Improve movement speeds
 
 */
 
@@ -79,7 +80,7 @@ int main(){
 		// Construction
 		//Set filename to empty quotes to leave objects as polygons
 		PlayerObject player("Imgs/ship.png"); 
-		BG test;
+		BG test(&window);
 		test.loadP("level.txt");
 		
 		//OpenGl Coordinate Grid Setup
@@ -93,14 +94,11 @@ int main(){
 		while (!window.closed()){
 			window.clear();
 
-			checkForInput(&window, &motion);
+			checkForInput(&window, &motion, test);
 
 			test.update(&motion);
 
-			glPushMatrix();
-			motion.applyRotation();
-			player.Draw();
-			glPopMatrix();
+			player.Draw(&motion);
 
 			window.update();
 			Sleep(0.5); //Controls how fast the game loop runs
