@@ -9,7 +9,8 @@ namespace spacey{
 			imageLoaded = false;
 		}
 
-		bg_Texture::bg_Texture(string filename){
+		bg_Texture::bg_Texture(Window* window, string filename){
+			m_window = window;
 			imageLoaded = loadBG(filename); //Filling parameters
 
 			if (imageLoaded)
@@ -29,6 +30,8 @@ namespace spacey{
 				//Drawing the image
 				glPushMatrix();
 
+				//parallax(); //Doesn't work, won't repeat past origional draw position
+
 				glBegin(GL_QUADS);
 				glTexCoord2d(0, 0);    glVertex2d(x_coord, y_coord);
 				glTexCoord2d(0, 8);   glVertex2d(x_coord, y_coord + 600);
@@ -41,6 +44,17 @@ namespace spacey{
 				glDisable(GL_TEXTURE_2D);
 
 			}
+		}
+
+		void bg_Texture::parallax(){
+			if (m_window->isKeyPressed(GLFW_KEY_A))
+				x_coord++;
+			if (m_window->isKeyPressed(GLFW_KEY_D))
+				x_coord--;
+			if (m_window->isKeyPressed(GLFW_KEY_W))
+				y_coord--;
+			if (m_window->isKeyPressed(GLFW_KEY_S))
+				y_coord++;
 		}
 
 		bool bg_Texture::loadBG(string filename){

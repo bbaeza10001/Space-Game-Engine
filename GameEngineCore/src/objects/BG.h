@@ -4,8 +4,9 @@
 #include <vector>
 #include "../graphics/Window.h"
 #include "../graphics/LoadLevel.h"
-#include "../motion/Orbits.h"
 #include "CircleObject.h"
+#include "Merchant.h"
+#include "../motion/Orbits.h"
 #include "../motion/MotionController.h"
 
 namespace spacey{
@@ -21,20 +22,24 @@ namespace spacey{
 		public: //Set up functions
 			BG();
 			BG(Window* window);
+			void loadEntity(string filename, string type);
 			void update(Motion* motion);
-			void loadP(string filename);
-			//Add function to load in enemies and 
+			//Add functions to load in enemies and 
 			//other background elements
 
 		public: //Other Functions
 			int testCollision();
-		private:
+
+		private: //Personal Functions
 			void move(Motion* motion);
 			void collided();
 
-		private:
-			Window* m_window;
+		private: //Objects
 			vector<CircleObject> planets;
+			vector<Merchant> merchants;
+
+		private: //Tools
+			Window* m_window;
 			Orbit orb;
 			bool hit = false;
 			int colCode;

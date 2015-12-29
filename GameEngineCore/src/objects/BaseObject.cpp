@@ -3,10 +3,11 @@
 namespace spacey{
 	namespace objects{
 	
-		bool loadImage(string filename, vector<unsigned char> &m_image, size_t &u2, size_t &v2, double &u3, double &v3){
+		bool loadImage(string filename, vector<unsigned char> &m_image, size_t &u2, size_t &v2, double &u3, 
+			double &v3, unsigned &width, unsigned &height){
+
 			// Load file and decode image.
 			vector<unsigned char> image;
-			unsigned width, height;
 			unsigned error = lodepng::decode(image, width, height, filename);
 			// If there's an error, display it.
 			if (error != 0)

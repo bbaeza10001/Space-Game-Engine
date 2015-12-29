@@ -11,9 +11,9 @@ namespace spacey{
 			x_coord = 0;
 			y_coord = 0;
 			if (filename != "")
-				imageLoaded = loadImage(filename, m_image, u2, v2, u3, v3);
+				imageLoaded = loadImage(filename, m_image, u2, v2, u3, v3, width, height);
 
-			loadImage("Imgs/health.png", m_hImage, h_u2, h_v2, h_u3, h_v3);
+			loadImage("Imgs/health.png", m_hImage, h_u2, h_v2, h_u3, h_v3, width, height);
 		}
 
 		void PlayerObject::Draw(Motion* motion){

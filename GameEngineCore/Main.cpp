@@ -45,7 +45,7 @@ int main(){
 	//Start Screen Object Declarations
 	button b_start(&start, 250, 400, 50, 40, "Imgs/start.png");
 	button b_exit(&start, 550, 400, 50, 40, "Imgs/exit.png");
-	bg_Texture background("Imgs/bg.png");
+	bg_Texture background(&start, "Imgs/bg.png");
 	bool exit = true; //Exit code for closing the start window
 
 	while (!start.closed()){
@@ -81,7 +81,8 @@ int main(){
 		//Set filename to empty quotes to leave objects as polygons
 		PlayerObject player("Imgs/ship.png"); 
 		BG test(&window);
-		test.loadP("level.txt");
+		test.loadEntity("level.txt", "PLANET");
+		test.loadEntity("merchant.txt", "MERCHANT");
 		
 		//OpenGl Coordinate Grid Setup
 		glViewport(0, 0, width, height);

@@ -57,6 +57,9 @@
     <ClCompile Include="src\motion\Collision.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\objects\Merchant.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\graphics\Window.h">
@@ -101,6 +104,9 @@
     <ClInclude Include="src\motion\Collision.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="src\objects\Merchant.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Image Include="Imgs\start.png">
@@ -143,6 +149,12 @@
       <Filter>Resource Files</Filter>
     </Image>
     <Image Include="Imgs\health.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Imgs\enemy.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Imgs\merchant.png">
       <Filter>Resource Files</Filter>
     </Image>
   </ItemGroup>

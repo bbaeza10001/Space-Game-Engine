@@ -93,6 +93,7 @@
     <ClCompile Include="src\objects\BaseObject.cpp" />
     <ClCompile Include="src\objects\BG.cpp" />
     <ClCompile Include="src\objects\CircleObject.cpp" />
+    <ClCompile Include="src\objects\Merchant.cpp" />
     <ClCompile Include="src\objects\PlayerObject.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -109,16 +110,19 @@
     <ClInclude Include="src\objects\BaseObject.h" />
     <ClInclude Include="src\objects\BG.h" />
     <ClInclude Include="src\objects\CircleObject.h" />
+    <ClInclude Include="src\objects\Merchant.h" />
     <ClInclude Include="src\objects\PlayerObject.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Imgs\bg.png" />
     <Image Include="Imgs\cold.png" />
+    <Image Include="Imgs\enemy.png" />
     <Image Include="Imgs\exit.png" />
     <Image Include="Imgs\earth.png" />
     <Image Include="Imgs\health.png" />
     <Image Include="Imgs\jupiter.png" />
     <Image Include="Imgs\mars.png" />
+    <Image Include="Imgs\merchant.png" />
     <Image Include="Imgs\neptune.png" />
     <Image Include="Imgs\pluto.png" />
     <Image Include="Imgs\saturn.png" />

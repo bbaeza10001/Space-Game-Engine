@@ -1,5 +1,6 @@
 #pragma once
 #include "../objects/BaseObject.h"
+#include "Window.h"
 #include <vector>
 #include <string>
 #include <iostream>
@@ -12,10 +13,12 @@ namespace spacey{
 		class bg_Texture : BaseObject{
 		public:
 			bg_Texture();
-			bg_Texture(string filename);
+			bg_Texture(Window* window, string filename);
 			void Draw();
 		private:
+			void parallax();
 			bool loadBG(string filename);
+			Window* m_window;
 		};
 	}
 }

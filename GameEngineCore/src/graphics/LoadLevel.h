@@ -4,12 +4,15 @@
 #include <string>
 #include <iostream>
 #include "../objects/CircleObject.h"
+#include "../objects/Merchant.h"
 
 namespace spacey{ namespace level{
 
 	using namespace objects;
 	using namespace std;
 
-	vector<CircleObject> loadPlanets(vector<CircleObject> systemVector, string fileName);
+	void loadObject(vector<CircleObject> &container, string fileName);
+	void loadObject(vector<Merchant> &container, string fileName);
+
 
 } }

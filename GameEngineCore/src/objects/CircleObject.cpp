@@ -12,7 +12,7 @@ namespace spacey{
 			x_coord = x_in;
 			y_coord = y_in;
 			radius = radius_in;
-			imageLoaded = loadImage(filename, m_image, u2, v2, u3, v3);
+			imageLoaded = loadImage(filename, m_image, u2, v2, u3, v3, width, height);
 		}
 
 		void CircleObject::Draw(){
