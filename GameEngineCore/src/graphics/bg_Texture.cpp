@@ -21,7 +21,6 @@ namespace spacey{
 			if (imageLoaded){
 				// Enable the texture for OpenGL.
 				glEnable(GL_TEXTURE_2D);
-
 				glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);//Setting image to repeat on background
 				glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
 				glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR); //GL_NEAREST = no smoothing
