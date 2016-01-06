@@ -2,6 +2,8 @@
 #include "src\graphics\bg_Texture.h"
 #include "src\objects\BG.h"
 
+//#include <SFML\Audio.hpp>
+
 using namespace spacey;
 using namespace graphics;
 using namespace objects;
@@ -74,11 +76,9 @@ int main(){
 		glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
 
 		Motion motion;
-		Orbit orb1;  //Also this
-		Orbit orb2;
 
 		// Construction
-		//Set filename to empty quotes to leave objects as polygons
+		//Set filename to empty quotes to leave objects as rectums
 		PlayerObject player("Imgs/ship.png"); 
 		BG test(&window);
 		test.loadEntity("level.txt", "PLANET");
@@ -92,7 +92,7 @@ int main(){
 		glMatrixMode(GL_MODELVIEW);
 		glLoadIdentity();
 
-		while (!window.closed()){
+		while (!window.closed()){ //Main game loop
 			window.clear();
 
 			checkForInput(&window, &motion, test);
@@ -112,6 +112,9 @@ int main(){
 
 //Sandbox main function
 #if 0
+
+
+
 int main(){
 
 	int width = 800;
@@ -122,12 +125,11 @@ int main(){
 	glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
 
 	Motion motion;
-	Orbit orb1;  //Also this
-	Orbit orb2;
 
 	// Construction
 	PlayerObject player("Imgs/ship.png"); //Set filename to empty quotes to leave player as polygon
-	vector<CircleObject> test = loadPlanets(test, "level.txt");
+	BG test(&window);
+	test.loadEntity("level.txt", "PLANET");
 
 	//OpenGl Coordinate Grid Setup
 	glViewport(0, 0, width, height);
@@ -137,29 +139,21 @@ int main(){
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
 
+	sf::Music music;
+
+	music.openFromFile("Audio/Waltz_Of_Walter.ogg");
+
+	music.setLoop(true);
+	music.play();
+
 	while (!window.closed()){
 		window.clear();
 
-		checkForInput(&window, &motion);
+		checkForInput(&window, &motion, test);
 
-		// Translation
-		glPushMatrix();
-		motion.applySpeed();
-		for (unsigned int i = 0; i < test.size(); i++){
-			test[i].Draw();
-		}
-		glPopMatrix();
+		test.update(&motion);
 
-		// Rotation
-		glPushMatrix();
-		motion.applyRotation();
-		player.Draw();
-		glPopMatrix();
-
-		//Orbits
-		glPushMatrix();
-		orb1.orbit(test);
-		glPopMatrix();
+		player.Draw(&motion);
 
 		window.update();
 		Sleep(0.5); //Controls how fast the game loop runs

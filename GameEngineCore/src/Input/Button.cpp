@@ -59,10 +59,9 @@ namespace spacey{ namespace input{
 		glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
 		glTexImage2D(GL_TEXTURE_2D, 0, 4, u2, v2, 0, GL_RGBA, GL_UNSIGNED_BYTE, &m_image[0]);
 
-		glColor4ub(255, 255, 255, 255);
-
 		//Draw the image on a polygon
 		glPushMatrix();
+
 		glBegin(GL_QUADS);
 		glTexCoord2d(0, 0);     glVertex2d(m_x, m_y);
 		glTexCoord2d(u3, 0);   glVertex2d(m_x + m_width, m_y);
